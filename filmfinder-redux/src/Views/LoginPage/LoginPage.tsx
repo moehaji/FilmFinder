@@ -22,7 +22,7 @@ export const LoginPage: React.FC = () => {
           <input type="submit" value="Login" />
 
           <div className="signup_link">
-            Not a member? <Link to={"/register"}>Signup</Link>
+            Not a member? <Link to={"/register"}>Sign up</Link>
           </div>
         </form>
       </div>

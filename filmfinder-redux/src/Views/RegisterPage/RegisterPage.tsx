@@ -1,5 +1,6 @@
 import React from "react";
 import "./RegisterPage.css";
+import { Link } from "react-router-dom";
 
 export const RegisterPage: React.FC = () => {
   return (
@@ -32,7 +33,11 @@ export const RegisterPage: React.FC = () => {
             <label>Email</label>
           </div>
 
-          <input type="submit" value="Login" />
+          <div>
+            <input type="submit" value="Sign Up">
+              <Link to={"/homepage"}></Link>
+            </input>
+          </div>
         </form>
       </div>
     </body>

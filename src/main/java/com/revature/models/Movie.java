@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,13 +19,15 @@ public class Movie {
     @Column(name="description")
     String description;
 
-    @Column(name="genre")
-    String genre;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="genre_id")
+//    @JsonIgnore
+    int genre;
 
     public Movie() {
     }
 
-    public Movie(int movieId, String title, String description, String genre) {
+    public Movie(int movieId, String title, String description, int genre) {
         this.movieId = movieId;
         this.title = title;
         this.description = description;
@@ -54,11 +58,11 @@ public class Movie {
         this.description = description;
     }
 
-    public String getGenre() {
+    public int getGenre() {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void setGenre(int genre) {
         this.genre = genre;
     }
 
