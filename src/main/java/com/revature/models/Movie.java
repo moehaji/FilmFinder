@@ -19,8 +19,8 @@ public class Movie {
     @Column(name="description")
     String description;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name="genre_id")
+//    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @JoinColumn(name="genre_id")
 //    @JsonIgnore
     int genre;
 

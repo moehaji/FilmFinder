@@ -49,10 +49,10 @@ public class UserController {
         }
     }
 
-    @GetMapping("/user")
-    public User getCurrentUser(@RequestParam(name="user_id")int userId){
-        return uServ.getCurrentUserById(userId);
-    }
+//    @GetMapping("/user")
+//    public User getCurrentUser(@RequestParam(name="user_id")int userId){
+//        return uServ.getCurrentUserById(userId);
+//    }
 
 
 

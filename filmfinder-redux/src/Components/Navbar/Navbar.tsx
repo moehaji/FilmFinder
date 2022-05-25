@@ -6,7 +6,8 @@ import "./Navbar.css";
 export const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
-      <img src={defaultImage} alt="Default Profile" className="profile-pic" />
+      {/* <img src={defaultImage} alt="Default Profile" className="profile-pic" /> */}
+
       <ul className="primary-list row">
         <li>
           <Link to={"/home"} className="nav-link">
@@ -19,12 +20,6 @@ export const Navbar: React.FC = () => {
             Search
           </Link>
         </li>
-
-        <li className="logout">
-          <Link to={"/login"} className="nav-link">
-            <button className="logout-btn">Logout</button>
-          </Link>
-        </li>
       </ul>
 
       <ul className="secondary-list row">
@@ -32,6 +27,11 @@ export const Navbar: React.FC = () => {
           <a href="#">Login</a>
         </li>
       </ul>
+      <li className="logout">
+        <Link to={"/login"} className="nav-link">
+          <button className="logout-btn">Logout</button>
+        </Link>
+      </li>
     </nav>
   );
 };

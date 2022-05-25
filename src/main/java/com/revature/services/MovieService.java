@@ -28,7 +28,7 @@ public class MovieService {
     public List<Movie> getByGenre(int genreId) {
         List<Movie> movieGenreList;
 
-        movieGenreList = mRepo.findAllById(genreId);
+        movieGenreList = mRepo.findByGenre(genreId);
 
         return movieGenreList;
     }
