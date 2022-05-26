@@ -25,7 +25,7 @@ public class UserController {
         this.uServ = uServ;
     }
 
-    @PostMapping("/user/")
+    @PostMapping("/user/register")
     public ResponseEntity<Object> handleRegisterUser(@RequestBody LinkedHashMap<String, String> body){
 
         try{
@@ -44,6 +44,22 @@ public class UserController {
 
         try{
             return new ResponseEntity<>(uServ.loginUser(username, password), HttpStatus.ACCEPTED);
+        } catch(InvalidCredentialsException e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
+        }
+    }
+
+    @PutMapping("/user/update")
+    public ResponseEntity<Object> handleUpdateUser(@RequestBody LinkedHashMap<String, String> body) {
+
+        String userId = body.get("userId");
+        String firstName = body.get("firstName");
+        String lastName = body.get("lastName");
+        String username = body.get("username");
+        String password = body.get("password");
+        String email = body.get("email");
+        try{
+            return new ResponseEntity<>(uServ.updateUser(Integer.parseInt(userId), firstName, lastName, username, password, email), HttpStatus.ACCEPTED);
         } catch(InvalidCredentialsException e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
         }

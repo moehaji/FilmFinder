@@ -38,6 +38,17 @@ public class UserService {
         }
     }
 
+    public User updateUser(int id, String firstName, String lastName, String username, String password, String email) {
+        User updatedUser = new User(id, firstName, lastName, username, password, email);
+        if (updatedUser == null) {
+            LoggingUtil.logger.error("Cannot update that user");
+            throw new InvalidCredentialsException();
+        } else {
+            LoggingUtil.logger.info("User: " + updatedUser.getUsername() + " updated successfully");
+            return uRepo.save(updatedUser);
+        }
+    }
+
 //    public User getCurrentUserById(int userId){
 //        return uRepo.findById(userId).get();
 //    }
