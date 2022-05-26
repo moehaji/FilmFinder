@@ -1,11 +1,11 @@
 import React from "react";
 import { Navbar } from "../../Components/Navbar/Navbar";
 
-export const HomePage: React.FC = () => {
+export const SearchPage: React.FC = () => {
   return (
     <body>
       <Navbar />
-      <h1>Home Page</h1>
+      <p>Hi</p>
     </body>
   );
 };
