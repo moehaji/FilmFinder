@@ -3,3 +3,4 @@
 2022-05-26 09:40:47 INFO  LoggingUtil:26 - User: dvader registered successfully
 2022-05-26 09:42:17 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
 2022-05-26 10:08:13 INFO  LoggingUtil:47 - User: dvader updated successfully
+2022-05-26 12:27:57 INFO  LoggingUtil:26 - User: mohamed65 registered successfully

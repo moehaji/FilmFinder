@@ -1,6 +1,9 @@
 package com.revature.controllers;
 
 import com.revature.exceptions.InvalidCredentialsException;
+import com.revature.utils.MailingUtil;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import com.revature.models.User;
@@ -11,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import java.util.LinkedHashMap;
 
 @RestController
@@ -18,6 +22,8 @@ import java.util.LinkedHashMap;
 public class UserController {
 
     private UserService uServ;
+    @Autowired
+    private MailingUtil m;
 
     @Autowired
     public UserController(UserService uServ) {
@@ -30,10 +36,17 @@ public class UserController {
 
         try{
             User u = uServ.registerNewUser(body.get("firstName"), body.get("lastName"), body.get("username"), body.get("email"), body.get("password"));
+            triggerMail(u.getEmail());
             return new ResponseEntity<>(u, HttpStatus.CREATED);
         } catch(Exception e){
             return new ResponseEntity<>("Invalid username or email", HttpStatus.CONFLICT);
         }
+    }
+
+    public void triggerMail(String to){
+        m.sendMail(to,
+                "Welcome to Film Finder!",
+                "Congratulations on registering with film finder. Check out all the fun features we have.");
     }
 
     @PostMapping("/user/login")
@@ -65,10 +78,10 @@ public class UserController {
         }
     }
 
-//    @GetMapping("/user")
-//    public User getCurrentUser(@RequestParam(name="user_id")int userId){
-//        return uServ.getCurrentUserById(userId);
-//    }
+    @GetMapping("/user")
+    public User getCurrentUser(@RequestParam(name="user_id")int userId){ // Could also use @PathVariable("id")int id
+        return uServ.getCurrentUserById(userId);
+    }
 
 
 

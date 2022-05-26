@@ -49,9 +49,9 @@ public class UserService {
         }
     }
 
-//    public User getCurrentUserById(int userId){
-//        return uRepo.findById(userId).get();
-//    }
+    public User getCurrentUserById(int userId){
+        return uRepo.findById(userId).get();
+    }
 
 
 }
