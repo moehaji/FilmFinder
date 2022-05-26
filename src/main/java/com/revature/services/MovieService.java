@@ -33,5 +33,9 @@ public class MovieService {
         return movieGenreList;
     }
 
+    public List<Movie> getAllMovies() {
+        List<Movie> moviesList = mRepo.findAll();
+        return moviesList;
+    }
 
 }

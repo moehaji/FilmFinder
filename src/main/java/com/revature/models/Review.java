@@ -11,20 +11,20 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="review_id")
-    int reviewId;
+    private int reviewId;
 
     @Column(name="rating")
-    int rating;
+    private int rating;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     @JsonIgnore
-    User reviewer;
+    private User reviewer;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="movie_id")
     @JsonIgnore
-    Movie movieRated;
+    private Movie movieRated;
 
     public Review() {
     }

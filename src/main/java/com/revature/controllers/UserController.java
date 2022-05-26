@@ -78,8 +78,8 @@ public class UserController {
         }
     }
 
-    @GetMapping("/user")
-    public User getCurrentUser(@RequestParam(name="user_id")int userId){ // Could also use @PathVariable("id")int id
+    @GetMapping("/user/{id}")
+    public User getCurrentUser(@PathVariable("id")int userId){ // Could also use @RequestParam(name="user_id")int userId
         return uServ.getCurrentUserById(userId);
     }
 
