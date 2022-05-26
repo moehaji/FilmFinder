@@ -1,0 +1,14 @@
+.movie-img {
+  height: 200px;
+  width: 150px;
+}
+
+.card {
+  background-color: black;
+  border: 4px solid red;
+  width: fit-content;
+  padding: 20px;
+  border-radius: 5px;
+  color: white;
+  margin-right: 20px;
+}

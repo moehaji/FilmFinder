@@ -1,3 +1,9 @@
 .home-page {
     background: var(--off-white);
+    height: 100vh;
+}
+
+.movie-card-container {
+    display: flex;
+    margin: 50px;
 }
