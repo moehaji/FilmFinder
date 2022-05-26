@@ -4,8 +4,7 @@ import "./HomePage.css";
 
 export const HomePage: React.FC = () => {
   return (
-    <body>
-      {/* <h1>Home Pagedfre</h1> */}
+    <body className="home-page">
       <Navbar />
       <h1>Home Pagedfre</h1>
     </body>
