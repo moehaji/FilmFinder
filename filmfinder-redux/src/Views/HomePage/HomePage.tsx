@@ -4,8 +4,9 @@ import { Navbar } from "../../Components/Navbar/Navbar";
 export const HomePage: React.FC = () => {
   return (
     <body>
+      {/* <h1>Home Pagedfre</h1> */}
       <Navbar />
-      <h1>Home Page</h1>
+      <h1>Home Pagedfre</h1>
     </body>
   );
 };
