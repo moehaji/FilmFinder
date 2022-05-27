@@ -3,9 +3,10 @@ import "./HomePage.css";
 import { useSelector, useDispatch } from "react-redux";
 import { NavbarLoggedIn } from "../../Components/Navbar/NavbarLoggedIn";
 import { RootState, AppDispatch } from "../../Store";
-import { getAllMovies } from "../../Slices/MovieSlice";
+import { clearCurrMovie, getAllMovies } from "../../Slices/MovieSlice";
 import { IMovie } from "../../Interfaces/IMovie";
 import { MovieCard } from "../../Components/MovieCard/MovieCard";
+import { clearMovies } from "../../Slices/MovieSlice";
 
 export const HomePage: React.FC = () => {
   const movieInfo = useSelector((state: RootState) => state.movie);
@@ -17,12 +18,13 @@ export const HomePage: React.FC = () => {
       console.log("Loading in movies");
       dispatch(getAllMovies());
     }
+    dispatch(clearCurrMovie())
+    console.log("Inside of homepage");
   }, [movieInfo.movies]);
 
   return (
     <div className="home-page">
       <NavbarLoggedIn />
-
       <h1>Home Page</h1>
       <div className="movie-card-container">
         {movieInfo.movies ? (

@@ -12,3 +12,8 @@
   color: var(--off-white);
   margin-right: 20px;
 }
+
+.card:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}

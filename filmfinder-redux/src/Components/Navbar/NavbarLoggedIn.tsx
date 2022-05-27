@@ -13,14 +13,14 @@ export const NavbarLoggedIn: React.FC = () => {
     <div>
       <nav className="navbar-loggedin">
         <h2>
-          <Link to={"/home"} className="logo">
+          <Link to={"/"} className="logo">
             Film<span>Finder</span>
           </Link>
         </h2>
 
         <ul>
           <li className="nav-list">
-            <Link to={"/home"} className="nav-item">
+            <Link to={"/"} className="nav-item">
               Home
             </Link>
           </li>

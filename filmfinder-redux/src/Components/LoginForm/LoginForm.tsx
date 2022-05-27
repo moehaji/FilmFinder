@@ -18,7 +18,7 @@ export const LoginForm: React.FC = () => {
   };
 
   const handleLogin = () => {
-    navigator("/home");
+    navigator("/");
   };
 
   return (
