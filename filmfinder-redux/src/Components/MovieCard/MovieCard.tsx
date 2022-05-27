@@ -2,8 +2,8 @@ import React from "react";
 import { IMovie } from "../../Interfaces/IMovie";
 import { RootState } from "../../Store";
 import { useSelector } from "react-redux";
-
 import "./MovieCard.css";
+
 export const MovieCard: React.FC<IMovie> = (movie: IMovie) => {
   return (
     <div className="card">

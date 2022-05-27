@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import "./RegisterForm.css";
 
 export const RegisterForm: React.FC = () => {
   const [firstName, setFirstName] = useState<String>("");

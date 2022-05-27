@@ -1,11 +1,11 @@
 import React from "react";
+import "./SearchPage.css";
 import { Navbar } from "../../Components/Navbar/Navbar";
 
 export const SearchPage: React.FC = () => {
   return (
-    <body>
+    <div className="search-page">
       <Navbar />
-      <p>Hi</p>
-    </body>
+    </div>
   );
 };
