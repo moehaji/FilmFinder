@@ -13,7 +13,7 @@ export const MovieCard: React.FC<IMovie> = (movie: IMovie) => {
    const goToMoviePage = (event: React.MouseEvent<HTMLDivElement>) => {
      console.log(`Going to movie page ${movie.movieId}`);
      dispatch(getCurrMovie(movie.movieId));
-     navigator(`/moviePage/${movie.movieId}`);
+     navigator(`/moviePage`);
    };
 
   return (

@@ -28,10 +28,10 @@ public class Movie {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="genre_id")
-    @JsonIgnore
     private Genre genre;
 
     @OneToMany(mappedBy = "movieRated", cascade = CascadeType.ALL)
+    //@JoinColumn(name="review_id")
     private List<Review> reviews;
 
     public Movie() {

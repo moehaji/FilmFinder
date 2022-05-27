@@ -2,13 +2,11 @@ package com.revature.services;
 
 import com.revature.models.Movie;
 import com.revature.repo.MovieRepo;
-import com.revature.repo.ReviewRepo;
 import com.revature.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -38,4 +36,7 @@ public class MovieService {
         return moviesList;
     }
 
+    public Movie getMovieById(int movieId) {
+        return mRepo.findById(movieId).get();
+    }
 }

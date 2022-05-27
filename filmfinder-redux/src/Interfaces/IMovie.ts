@@ -2,7 +2,12 @@ export interface IMovie {
     movieId: number,
     description: string,
     title: string,
-    genreId: number,
+    genre: Genre,
     image: string,
     year: number
+}
+
+export type Genre = {
+    genreId: number,
+    genreName: string
 }

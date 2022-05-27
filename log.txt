@@ -4,3 +4,39 @@
 2022-05-26 09:42:17 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
 2022-05-26 10:08:13 INFO  LoggingUtil:47 - User: dvader updated successfully
 2022-05-26 12:27:57 INFO  LoggingUtil:26 - User: mohamed65 registered successfully
+2022-05-27 13:26:34 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:27:08 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:27:28 ERROR LoggingUtil:33 - User with username: klgsdj was not found in the database
+2022-05-27 13:34:08 ERROR LoggingUtil:33 - User with username: gdf was not found in the database
+2022-05-27 13:34:22 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:34:47 ERROR LoggingUtil:33 - User with username: gdf was not found in the database
+2022-05-27 13:34:57 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:35:36 ERROR LoggingUtil:33 - User with username: gdf was not found in the database
+2022-05-27 13:36:11 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:36:23 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:37:02 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:39:07 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:42:13 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:42:56 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:42:57 ERROR LoggingUtil:33 - User with username:  was not found in the database
+2022-05-27 13:44:32 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:44:54 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:47:18 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:48:58 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:57:59 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 13:59:32 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 14:00:52 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 14:01:34 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 14:02:05 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 14:10:52 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 14:11:09 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 14:13:02 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 15:15:31 ERROR LoggingUtil:33 - User with username: gedf was not found in the database
+2022-05-27 15:15:52 ERROR LoggingUtil:33 - User with username: jtsuch was not found in the database
+2022-05-27 15:15:55 ERROR LoggingUtil:33 - User with username: jtsuch was not found in the database
+2022-05-27 15:15:57 ERROR LoggingUtil:33 - User with username: jtsuch was not found in the database
+2022-05-27 15:15:57 ERROR LoggingUtil:33 - User with username: jtsuch was not found in the database
+2022-05-27 15:17:06 INFO  LoggingUtil:26 - User: jtsuch registered successfully
+2022-05-27 15:17:13 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-27 15:17:30 ERROR LoggingUtil:33 - User with username: kjgdfl was not found in the database
+2022-05-27 15:21:22 INFO  LoggingUtil:36 - User: jtsuch signed in successfully

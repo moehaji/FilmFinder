@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class Genre {
     private String genreName;
 
     @OneToMany(mappedBy = "genre", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Movie> movies;
 
 

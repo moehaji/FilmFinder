@@ -9,29 +9,33 @@ import javax.persistence.*;
 public class Review {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="review_id")
     private int reviewId;
 
     @Column(name="rating")
     private int rating;
 
+    @Column(name="content")
+    private String content;
+
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
-    @JsonIgnore
+    //@JsonIgnore
     private User reviewer;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="movie_id")
-    @JsonIgnore
+    //@JsonIgnore
     private Movie movieRated;
 
     public Review() {
     }
 
-    public Review(int reviewId, int rating, User reviewer, Movie movieRated) {
+    public Review(int reviewId, int rating, String content, User reviewer, Movie movieRated) {
         this.reviewId = reviewId;
         this.rating = rating;
+        this.content = content;
         this.reviewer = reviewer;
         this.movieRated = movieRated;
     }
@@ -50,6 +54,14 @@ public class Review {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public User getReviewer() {
@@ -73,6 +85,7 @@ public class Review {
         return "Review{" +
                 "reviewId=" + reviewId +
                 ", rating=" + rating +
+                ", content='" + content + '\'' +
                 ", reviewer=" + reviewer +
                 ", movieRated=" + movieRated +
                 '}';

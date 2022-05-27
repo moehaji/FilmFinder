@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { IMovie } from "../../Interfaces/IMovie";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Store";
-import "./Banner.css";
-import { AddReview } from "../AddReview/AddReview";
+import { NavbarLoggedIn } from "../../Components/Navbar/NavbarLoggedIn";
 
-export const Banner: React.FC = () => {
+export const ProfilePage: React.FC = () => {
 
-  const currMovie = useSelector((state: RootState) => state.movie);
-  
-  const [showForm, setShowForm] = useState(false);
-
-  const toggleForm = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    setShowForm(!showForm);
-  }
+  const currUser = useSelector((state: RootState) => state.user);
 
   return (
-    <div className="banner">
+    <>
+      <NavbarLoggedIn />
+      <h1>{currUser.user?.firstName} {currUser.user?.lastName}</h1>
+    </>
+  );
+};
+
+/*
+<div className="banner">
       <div className="banner-contents">
         <img className="movie-page-img" src={currMovie.currMovie?.image}></img>
         <div className="movie-page-content">
@@ -32,9 +31,11 @@ export const Banner: React.FC = () => {
             <button className="banner-button">Add to Favorites</button>
           </div>
           {showForm ? <AddReview /> : <></>}
+          <h1 className="banner-description">
+            </h1>
+            </div>
+          </div>
+          <div className="banner-fadebottom"></div>
         </div>
-      </div>
-      <div className="banner-fadebottom"></div>
-    </div>
-  );
-};
+
+*/

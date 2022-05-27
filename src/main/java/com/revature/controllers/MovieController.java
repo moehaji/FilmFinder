@@ -33,4 +33,15 @@ public class MovieController {
             return new ResponseEntity<>("Can't get all movies", HttpStatus.CONFLICT);
         }
     }
+
+    @GetMapping("/movie/{id}")
+    public ResponseEntity<Object> handleGetMovieById(@PathVariable("id")int movieId){
+
+        try{
+            Movie m = mServ.getMovieById(movieId);
+            return new ResponseEntity<>(m, HttpStatus.CREATED);
+        } catch(Exception e){
+            return new ResponseEntity<>("Can't get that movie", HttpStatus.CONFLICT);
+        }
+    }
 }

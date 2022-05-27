@@ -2,12 +2,16 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./LoginForm.css";
+import { AppDispatch } from "../../Store";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../Slices/UserSlice";
 
 export const LoginForm: React.FC = () => {
-  const [username, setUsername] = useState<String>("");
-  const [password, setPassword] = useState<String>("");
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const navigator = useNavigate();
+  const dispatch: AppDispatch = useDispatch();
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.name === "username") {
@@ -17,9 +21,16 @@ export const LoginForm: React.FC = () => {
     }
   };
 
-  const handleLogin = () => {
-    navigator("/");
-  };
+  const handleLogin = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+      let credentials = {
+        username,
+        password,
+      };
+  
+      dispatch(loginUser(credentials));
+      //navigator('/');
+    };
 
   return (
     <div className="center">

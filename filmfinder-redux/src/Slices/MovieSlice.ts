@@ -14,15 +14,6 @@ const initialMoviesState: MovieSliceState = {
   error: false,
 };
 
-type Movie = {
-  movieId: number,
-  description: string,
-  title: string,
-  genreId: number,
-  image: string,
-  year: number
-}
-
 export const getAllMovies = createAsyncThunk(
   "movie/all", 
   async (thunkAPI) => {
@@ -45,7 +36,7 @@ export const getCurrMovie = createAsyncThunk(
       movieId: res.data.movieId,
       description: res.data.description,
       title: res.data.title,
-      genreId: res.data.genreId,
+      genre: res.data.genre,
       image: res.data.image,
       year: res.data.year
     };

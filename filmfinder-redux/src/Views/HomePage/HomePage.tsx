@@ -10,10 +10,13 @@ import { clearMovies } from "../../Slices/MovieSlice";
 
 export const HomePage: React.FC = () => {
   const movieInfo = useSelector((state: RootState) => state.movie);
+  //const userInfo = useSelector((state: RootState) => state.user);
 
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
+    //console.log(userInfo.user);
+    console.log(localStorage.getItem('username'));
     if (!movieInfo.movies) {
       console.log("Loading in movies");
       dispatch(getAllMovies());
@@ -32,7 +35,7 @@ export const HomePage: React.FC = () => {
             return <MovieCard {...m} />;
           })
         ) : (
-          <h1>No movies on record or not connected to internet</h1>
+          <h1>Loading...</h1>
         )}
       </div>
     </div>
