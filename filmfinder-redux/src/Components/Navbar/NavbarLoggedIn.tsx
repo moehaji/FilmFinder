@@ -10,33 +10,31 @@ export const NavbarLoggedIn: React.FC = () => {
   };
 
   return (
-    <header>
-      <nav className="navbar">
+    <div>
+      <nav className="navbar-loggedin">
         <h2>
           <Link to={"/home"} className="logo">
             Film<span>Finder</span>
           </Link>
         </h2>
 
-        <ul className="nav-links">
-          <li>
-            <Link to={"/home"} className="nav-links">
+        <ul>
+          <li className="nav-list">
+            <Link to={"/home"} className="nav-item">
               Home
             </Link>
           </li>
 
-          <li>
-            <Link to={"/search"} className="nav-links">
+          <li className="nav-list">
+            <Link to={"/search"} className="nav-item">
               Search
             </Link>
           </li>
         </ul>
-        <div className="join-box">
-          <button className="logout-btn" onClick={handleLogoutNavigate}>
-            Logout
-          </button>
-        </div>
+        <button className="logout-btn" onClick={handleLogoutNavigate}>
+          Logout
+        </button>
       </nav>
-    </header>
+    </div>
   );
 };

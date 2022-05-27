@@ -1,48 +1,32 @@
-.navbar {
+.navbar-loggedin {
     width: 100%;
     height: 60px;
-    position: sticky;;
+    position: sticky;
     top: 0;
     z-index: 1;
     background: var(--dark);
     padding: 0 2.5vw;
     display: flex;
     align-items: center;
-}
+    justify-content: space-between;
+} 
 
-.logo {
-    height: 60%;
-    text-decoration: none;
-    color: var(--off-white);
-}
-
-.logo > span {
-    color: var(--pink);
-}
-
-.join-box {
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    margin-left: auto;
-}
-
-.nav-links {
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    margin-left: auto;
-    text-decoration: none;
+.nav-list {
+    list-style: none;
     display: inline-block;
+    padding: 10px 20px;
+    text-transform: uppercase;
 }
 
-.join-msg {
+.nav-item {
     color: var(--off-white);
-    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-item:hover {
+    color: var(--pink);
+    transition: 0.4s;
 }
 
 .logout-btn {
