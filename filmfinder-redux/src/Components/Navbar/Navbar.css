@@ -1,62 +1,52 @@
-.hero {
-    height: 100vh;
+.navbar {
     width: 100%;
-    /* background-image: linear-gradient(rgb(0,0,0,0,0.6), ); */
-}
-
-nav {
+    height: 60px;
+    position: sticky;;
+    top: 0;
+    z-index: 1;
+    background: var(--dark);
+    padding: 0 2.5vw;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-top: 40px;
-    padding-left: 10%;
-    padding-right: 10%;
 }
 
 .logo {
-    color: var(--white);
-    font-size: 28px;
+    height: 60%;
     text-decoration: none;
+    color: var(--off-white);
 }
 
-span {
-    color: var(--dark);
+.logo > span {
+    color: var(--pink);
 }
 
-nav ul li {
-    list-style-type: none;
-    display: inline-block;
-    padding: 10px 20px;
+.join-box {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-left: auto;
 }
 
-nav ul li a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: bold;
+.join-msg {
+    color: var(--off-white);
+    text-transform: uppercase;
 }
 
-nav ul li a:hover {
-    color: var(--dark);
-    transition: 0.3s
+.btn {
+    border: 1px solid var(--off-white);
+    border-radius: 2px;
+    background: none;
+    color: var(--off-white);
+    height: 35px;
+    padding: 0 10px;
+    margin-left: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
-button {
-    border: none;
-    background: var(--pink);
-    padding: 12px 30px;
-    border-radius: 30px;
-    color: var(--white);
-    font-weight: bold;
-    font-size: 15px;
-    transition: 0.4s;
-}
-
-.nav-login {
-    text-decoration: none;
-    color: var(--white);
-}
-
-button:hover {
-    color: var(--dark);
-    transition: 0.3s
+.join-btn {
+    background: var(--red);
+    border-color: var(--red);
 }

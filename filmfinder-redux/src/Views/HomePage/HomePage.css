@@ -1,9 +1,19 @@
 .home-page {
     background: var(--off-white);
-    height: 100vh;
+    min-height: 100vh;
+    /* background-repeat: no-repeat; */
+    /* overflow: hidden; */
 }
 
 .movie-card-container {
     display: flex;
     margin: 50px;
+}
+
+.main {
+    position: relative;
+    margin-top: 60px;
+    width: 100%;
+    padding: 40px 2.5vw;
+    color: var(--dark);
 }

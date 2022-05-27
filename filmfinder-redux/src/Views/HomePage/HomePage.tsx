@@ -21,7 +21,8 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="home-page">
-      {/* <Navbar /> */}
+      <Navbar />
+
       <h1>Home Page</h1>
       <div className="movie-card-container">
         {movieInfo.movies ? (

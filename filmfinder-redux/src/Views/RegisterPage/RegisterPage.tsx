@@ -1,10 +1,11 @@
 import React from "react";
+import "./RegisterPage.css";
 import { RegisterForm } from "../../Components/RegisterForm/RegisterForm";
 
 export const RegisterPage: React.FC = () => {
   return (
-    <body>
+    <div className="register-page">
       <RegisterForm />
-    </body>
+    </div>
   );
 };
