@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
+import "./HomePage.css";
 import { useSelector, useDispatch } from "react-redux";
-import { Navbar } from "../../Components/Navbar/Navbar";
+import { NavbarLoggedIn } from "../../Components/Navbar/NavbarLoggedIn";
 import { RootState, AppDispatch } from "../../Store";
 import { getAllMovies } from "../../Slices/MovieSlice";
-import "./HomePage.css";
 import { IMovie } from "../../Interfaces/IMovie";
 import { MovieCard } from "../../Components/MovieCard/MovieCard";
 
@@ -21,7 +21,7 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="home-page">
-      <Navbar />
+      <NavbarLoggedIn />
 
       <h1>Home Page</h1>
       <div className="movie-card-container">
