@@ -93,7 +93,7 @@ export const RegisterForm: React.FC = () => {
           <label>Email</label>
         </div>
 
-        <button onClick={handleAccountCreated} className="login-btn">
+        <button onClick={handleAccountCreated} className="register-btn">
           Create
         </button>
 

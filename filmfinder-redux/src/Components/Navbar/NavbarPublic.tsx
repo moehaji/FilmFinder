@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Navbar.css";
+import "./NavbarPublic.css";
 
-export const Navbar: React.FC = () => {
+export const NavbarPublic: React.FC = () => {
   const navigator = useNavigate();
 
   const handleRegisterNavigate = () => {
@@ -17,8 +17,8 @@ export const Navbar: React.FC = () => {
     <div>
       <nav className="navbar">
         <h2>
-          <Link to={"/home"} className="logo">
-            Film <span>Finder</span>
+          <Link to={""} className="logo">
+            Film<span>Finder</span>
           </Link>
         </h2>
 
@@ -30,16 +30,6 @@ export const Navbar: React.FC = () => {
           <button className="btn" onClick={handleLoginNavigate}>
             Sign In
           </button>
-
-          {/* <ul>
-            <li>
-              <Link to={"/home"}>Home</Link>
-            </li>
-
-            <li>
-              <Link to={"/search"}>Search</Link>
-            </li>
-          </ul> */}
         </div>
       </nav>
     </div>
