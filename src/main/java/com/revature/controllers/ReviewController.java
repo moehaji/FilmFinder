@@ -5,10 +5,7 @@ import com.revature.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,14 +21,25 @@ public class ReviewController {
         this.rServ = rServ;
     }
 
-//    @GetMapping("/review/{id}")
-//    public ResponseEntity<Object> handleGetReviewByMovieId(@PathVariable("id")int movieId){
-//
-//        try{
-//            List<Review> rList = rServ.getReviewByMovieId(movieId);
-//            return new ResponseEntity<>(rList, HttpStatus.CREATED);
-//        } catch(Exception e){
-//            return new ResponseEntity<>("Can't get that movie", HttpStatus.CONFLICT);
-//        }
-//    }
+    @PostMapping("/review/create")
+    public ResponseEntity<Object> handleCreateReview(@RequestBody Review r, @RequestParam(name="userId") int userId, @RequestParam(name="movieId") int movieId){
+        try{
+           Review rev = rServ.createReview(r.getRating(), r.getContent(), userId, movieId);
+           System.out.println("R: "+r+" userId: "+userId+" movieId: "+movieId);
+            return new ResponseEntity<>(rev, HttpStatus.CREATED);
+        } catch(Exception e){
+            return new ResponseEntity<>("Can't create", HttpStatus.CONFLICT);
+        }
+    }
+
+    @GetMapping("/review/{id}")
+    public ResponseEntity<Object> handleGetReviewByMovieId(@PathVariable("id")int movieId){
+
+        try{
+            List<Review> rList = rServ.getReviewByMovieId(movieId);
+            return new ResponseEntity<>(rList, HttpStatus.CREATED);
+        } catch(Exception e){
+            return new ResponseEntity<>("Can't get that movie", HttpStatus.CONFLICT);
+        }
+    }
 }

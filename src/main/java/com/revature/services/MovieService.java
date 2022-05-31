@@ -1,6 +1,7 @@
 package com.revature.services;
 
 import com.revature.models.Movie;
+import com.revature.models.Review;
 import com.revature.repo.MovieRepo;
 import com.revature.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ public class MovieService {
     }
 
     public Movie getMovieById(int movieId) {
+        System.out.println("Inside getMovieById "+movieId);
         return mRepo.findById(movieId).get();
     }
 }

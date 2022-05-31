@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { IMovie } from "../Interfaces/IMovie";
-
+import { IReview } from "../Interfaces/IReview";
+import {IUser} from "../Interfaces/IUser";
 interface MovieSliceState {
   loading: boolean;
   error: boolean;
@@ -13,6 +14,12 @@ const initialMoviesState: MovieSliceState = {
   loading: false,
   error: false,
 };
+
+type ReviewContent = {
+  rev: IReview,
+  userId: number,
+  movieId: number,
+}
 
 export const getAllMovies = createAsyncThunk(
   "movie/all", 
@@ -38,7 +45,28 @@ export const getCurrMovie = createAsyncThunk(
       title: res.data.title,
       genre: res.data.genre,
       image: res.data.image,
-      year: res.data.year
+      year: res.data.year,
+      reviews: res.data.reviews
+    };
+  } catch (e) {
+    console.log(e);
+  }
+});
+
+export const createReview = createAsyncThunk(
+  "review/create", 
+  async (reviewContent: ReviewContent, thunkAPI) => {
+  try {
+    const res = await axios.post(`http://localhost:8000/review/create?userId=${reviewContent.userId}&movieId=${reviewContent.movieId}`, reviewContent.rev);
+    console.log("Review created: " + res.data);
+    return {
+      // movieId: res.data.movieId,
+      // description: res.data.description,
+      // title: res.data.title,
+      // genre: res.data.genre,
+      // image: res.data.image,
+      // year: res.data.year,
+      // reviews: res.data.reviews
     };
   } catch (e) {
     console.log(e);

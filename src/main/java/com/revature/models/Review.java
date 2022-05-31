@@ -40,6 +40,13 @@ public class Review {
         this.movieRated = movieRated;
     }
 
+    public Review(int rating, String content, User reviewer, Movie movieRated) {
+        this.rating = rating;
+        this.content = content;
+        this.reviewer = reviewer;
+        this.movieRated = movieRated;
+    }
+
     public int getReviewId() {
         return reviewId;
     }

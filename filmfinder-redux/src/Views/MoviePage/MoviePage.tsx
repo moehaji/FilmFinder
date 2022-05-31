@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 import { NavbarLoggedIn } from "../../Components/Navbar/NavbarLoggedIn";
 import { Banner } from "../../Components/Banner/Banner";
 import { IMovie } from "../../Interfaces/IMovie";
+import { IReview } from "../../Interfaces/IReview";
+import { ReviewCard } from "../../Components/ReviewCard/ReviewCard";
 
 export const MoviePage: React.FC = () => {
 
@@ -15,7 +17,10 @@ export const MoviePage: React.FC = () => {
       <NavbarLoggedIn />
       <Banner />
       <h1>Reviews</h1>
-      
+      {currMovie.currMovie ? (
+          currMovie.currMovie.reviews.map((r: IReview) => {
+            return <ReviewCard {...r} />
+          })) : <></> }
     </div>
   );
 };

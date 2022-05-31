@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import com.revature.models.Movie;
+import com.revature.models.Review;
 import com.revature.models.User;
 import com.revature.services.MovieService;
 import com.revature.services.ReviewService;
