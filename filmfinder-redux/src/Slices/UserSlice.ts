@@ -18,11 +18,38 @@ type Login = {
     password: string
 }
 
+type Register = {
+  firstName: string,
+  lastName: string,
+  username: string,
+  password: string,
+  email: string
+}
+
 export const loginUser = createAsyncThunk(
     "user/login", 
     async (login: Login, thunkAPI) => {
     try {
       const res = await axios.post(`http://localhost:8000/user/login`, login);
+      console.log("User: " + res.data);
+      return {
+            userId: res.data.userId,
+            email: res.data.email,
+            firstName: res.data.firstName,
+            lastName: res.data.lastName,
+            username: res.data.username,
+            password: res.data.password
+      };
+    } catch (e) {
+      console.log(e);
+    }
+  });
+
+  export const registerUser = createAsyncThunk(
+    "user/register", 
+    async (register: Register, thunkAPI) => {
+    try {
+      const res = await axios.post(`http://localhost:8000/user/register`, register);
       console.log("User: " + res.data);
       return {
             userId: res.data.userId,
@@ -57,6 +84,21 @@ export const UserSlice = createSlice({
     });
 
     builder.addCase(loginUser.rejected, (state, action) => {
+      state.error = true;
+      state.loading = false;
+    });
+
+    builder.addCase(registerUser.pending, (state, action) => {
+      state.loading = true;
+    });
+
+    builder.addCase(registerUser.fulfilled, (state, action) => {
+      state.user = action.payload;
+      state.loading = false;
+      state.error = false;
+    });
+
+    builder.addCase(registerUser.rejected, (state, action) => {
       state.error = true;
       state.loading = false;
     });

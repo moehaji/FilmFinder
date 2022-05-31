@@ -39,11 +39,11 @@ export const NavbarLoggedIn: React.FC = () => {
             </Link>
           </li>
 
-          <li className="nav-list">
+          {/* <li className="nav-list">
             <Link to={"/search"} className="nav-item">
               Search
             </Link>
-          </li>
+          </li> */}
 
           {currUser.user ? (
             <li className="nav-list">

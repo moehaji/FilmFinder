@@ -40,3 +40,13 @@
 2022-05-27 15:17:13 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
 2022-05-27 15:17:30 ERROR LoggingUtil:33 - User with username: kjgdfl was not found in the database
 2022-05-27 15:21:22 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-31 08:26:47 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-31 08:29:11 INFO  LoggingUtil:36 - User: jtsuch signed in successfully
+2022-05-31 08:55:25 INFO  LoggingUtil:26 - User: mabdulla registered successfully
+2022-05-31 08:55:38 ERROR LoggingUtil:33 - User with username: gdfkj was not found in the database
+2022-05-31 08:55:39 ERROR LoggingUtil:33 - User with username: gdfkj was not found in the database
+2022-05-31 08:55:40 ERROR LoggingUtil:33 - User with username: gdfkj was not found in the database
+2022-05-31 08:55:41 ERROR LoggingUtil:33 - User with username: gdfkj was not found in the database
+2022-05-31 08:55:50 INFO  LoggingUtil:36 - User: mabdulla signed in successfully
+2022-05-31 09:00:11 INFO  LoggingUtil:26 - User: gstan registered successfully
+2022-05-31 09:02:59 INFO  LoggingUtil:26 - User: mjoe registered successfully

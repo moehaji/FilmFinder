@@ -2,38 +2,53 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./RegisterForm.css";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../Store";
+import { registerUser } from "../../Slices/UserSlice";
 
 export const RegisterForm: React.FC = () => {
-  const [firstName, setFirstName] = useState<String>("");
-  const [lastName, setLastName] = useState<String>("");
-  const [username, setUsername] = useState<String>("");
-  const [password, setPassword] = useState<String>("");
-  const [email, setEmail] = useState<String>("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
 
   const navigator = useNavigate();
+  const dispatch: AppDispatch = useDispatch();
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.name === "firstName") {
       setFirstName(event.target.value);
-      console.log(firstName);
+      //console.log(firstName);
     } else if (event.target.name === "lastName") {
       setLastName(event.target.value);
-      console.log(lastName);
+      //console.log(lastName);
     } else if (event.target.name === "username") {
       setUsername(event.target.value);
-      console.log(username);
-    } else if (event.target.value === "password") {
+      //console.log(username);
+    } else if (event.target.name === "password") {
       setPassword(event.target.value);
-      console.log(password);
-    } else if (event.target.value === "email") {
+      //console.log(password);
+    } else if (event.target.name === "email") {
       setEmail(event.target.value);
-      console.log(email);
+      //console.log(email);
     }
   };
 
-  const handleAccountCreated = () => {
-    navigator("/home");
-  };
+  const handleAccountCreated = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+      let credentials = {
+        firstName,
+        lastName,
+        username,
+        password,
+        email,
+      };
+  
+      localStorage.setItem('username', username);
+      dispatch(registerUser(credentials));
+      navigator('/');
+    };
 
   return (
     <div className="center">

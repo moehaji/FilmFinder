@@ -1,31 +1,32 @@
 .home-page {
-    background: var(--off-white);
-    min-height: 100vh;
-    /* background-repeat: no-repeat; */
-    /* overflow: hidden; */
+  background: var(--off-white);
+  min-height: 100vh;
+  /* background-repeat: no-repeat; */
+  /* overflow: hidden; */
 }
 
 .movie-card-container {
-    display: flex;
-    margin: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px;
 }
 
 .main {
-    position: relative;
-    margin-top: 60px;
-    width: 100%;
-    padding: 40px 2.5vw;
-    color: var(--dark);
+  position: relative;
+  margin-top: 60px;
+  width: 100%;
+  padding: 40px 2.5vw;
+  color: var(--dark);
 }
 
 .heading {
-    text-transform: capitalize;
-    font-weight: 900;
-    font-size: 50px;
+  text-transform: capitalize;
+  font-weight: 900;
+  font-size: 50px;
 }
 
 .info {
-    width: 50%;
-    font-size: 20px;
-    margin-top: 10px;
+  width: 50%;
+  font-size: 20px;
+  margin-top: 10px;
 }
