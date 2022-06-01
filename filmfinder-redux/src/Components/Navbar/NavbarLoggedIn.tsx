@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 import { clearUser } from "../../Slices/UserSlice";
 
 export const NavbarLoggedIn: React.FC = () => {
-  
   const currUser = useSelector((state: RootState) => state.user);
   const navigator = useNavigate();
   const dispatch: AppDispatch = useDispatch();
@@ -51,20 +50,20 @@ export const NavbarLoggedIn: React.FC = () => {
                 Profile
               </Link>
             </li>
-          ) : <></>
-          }
-
+          ) : (
+            <></>
+          )}
         </ul>
 
-        { currUser.user ? (
-        <button className="logout-btn" onClick={handleLogoutNavigate}>
-          Logout
-        </button>
+        {currUser.user ? (
+          <button className="logout-btn" onClick={handleLogoutNavigate}>
+            Logout
+          </button>
         ) : (
           <button className="logout-btn" onClick={handleLogin}>
-          Log In
+            Log In
           </button>
-      )}
+        )}
       </nav>
     </div>
   );

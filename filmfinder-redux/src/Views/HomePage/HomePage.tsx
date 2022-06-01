@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./HomePage.css";
 import { useSelector, useDispatch } from "react-redux";
-import { NavbarLoggedIn } from "../../Components/Navbar/NavbarLoggedIn";
+import { NavbarPublic } from "../../Components/Navbar/NavbarPublic";
 import { RootState, AppDispatch } from "../../Store";
 import { clearCurrMovie, getAllMovies } from "../../Slices/MovieSlice";
 import { IMovie } from "../../Interfaces/IMovie";
@@ -12,7 +12,7 @@ import { useState } from "react";
 export const HomePage: React.FC = () => {
   const movieInfo = useSelector((state: RootState) => state.movie);
   //const userInfo = useSelector((state: RootState) => state.user);
-  
+
   const [filter, setFilter] = useState<string>("");
   const [genreId, setGenreId] = useState<string>("");
 
@@ -20,14 +20,14 @@ export const HomePage: React.FC = () => {
 
   useEffect(() => {
     //console.log(userInfo.user);
-    console.log(localStorage.getItem('username'));
+    console.log(localStorage.getItem("username"));
     if (!movieInfo.movies) {
       console.log("Loading in movies");
       dispatch(getAllMovies());
     }
     setFilter("");
     setGenreId("default");
-    dispatch(clearCurrMovie())
+    dispatch(clearCurrMovie());
     console.log("Inside of homepage");
   }, [movieInfo.movies]);
 
@@ -39,21 +39,35 @@ export const HomePage: React.FC = () => {
   const clearFilters = () => {
     setFilter("");
     setGenreId("default");
-  }
+  };
 
   const genreFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
     //console.log(event.target.value);
     setGenreId(event.target.value);
-  }
+  };
 
   return (
     <div className="home-page">
-      <NavbarLoggedIn />
+      <NavbarPublic />
       <h1>Home Page</h1>
       <form className="filter-form">
-        <input id="search" type="text" name="search" placeholder="search" autoComplete="off" onChange={handleInput}></input>
-        <select name="genre-filter" defaultValue={"default"} onChange={genreFilter}>
-          <option value="default" disabled>Genre</option>
+        <input
+          id="search"
+          type="text"
+          name="search"
+          placeholder="search"
+          autoComplete="off"
+          onChange={handleInput}
+          className="movie-input"
+        ></input>
+        <select
+          name="genre-filter"
+          defaultValue={"default"}
+          onChange={genreFilter}
+        >
+          <option value="default" disabled>
+            Genre
+          </option>
           <option value={1}>Action</option>
           <option value={2}>Comedy</option>
           <option value={3}>Horror</option>
@@ -62,18 +76,28 @@ export const HomePage: React.FC = () => {
           <option value={6}>Fantasy</option>
           <option value={7}>Sci-Fi</option>
         </select>
-        <input type="reset" value="Reset" onClick={clearFilters}></input>
+        <input
+          type="reset"
+          value="Reset"
+          onClick={clearFilters}
+          className="reset-btn"
+        ></input>
       </form>
       <div className="movie-card-container">
         {movieInfo.movies ? (
           movieInfo.movies.map((m: IMovie) => {
-            if(m.title.toLowerCase().includes(filter.toLowerCase())) {
-              if(genreId == "default" || m.genre.genreId.toString() == genreId ) {
-                  return <MovieCard {...m} />
-              } else { <></> }
+            if (m.title.toLowerCase().includes(filter.toLowerCase())) {
+              if (
+                genreId == "default" ||
+                m.genre.genreId.toString() == genreId
+              ) {
+                return <MovieCard {...m} />;
+              } else {
+                <></>;
+              }
             } else {
-              return <></>
-            };
+              return <></>;
+            }
           })
         ) : (
           <h1>Loading...</h1>

@@ -10,11 +10,11 @@ export const MovieCard: React.FC<IMovie> = (movie: IMovie) => {
   const navigator = useNavigate();
   const dispatch: AppDispatch = useDispatch();
 
-   const goToMoviePage = (event: React.MouseEvent<HTMLDivElement>) => {
-     console.log(`Going to movie page ${movie.movieId}`);
-     dispatch(getCurrMovie(movie.movieId));
-     navigator(`/moviePage`);
-   };
+  const goToMoviePage = (event: React.MouseEvent<HTMLDivElement>) => {
+    console.log(`Going to movie page ${movie.movieId}`);
+    dispatch(getCurrMovie(movie.movieId));
+    navigator(`/movie-page`);
+  };
 
   return (
     <div className="card" onClick={goToMoviePage}>
