@@ -1,8 +1,8 @@
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { IReview } from "../../Interfaces/IReview";
-import "../FontAwesome";
-import { Rating } from "react-simple-star-rating";
 
 export const ReviewCard: React.FC<IReview> = (review: IReview) => {
   return (
@@ -19,24 +19,72 @@ export const ReviewCard: React.FC<IReview> = (review: IReview) => {
                   <span> @{review.reviewer.username}</span>
                 </div>
               </div>
-              <div className="review-comment">{review.content}</div>
               <div className="reviews">
-                {/* <Rating ratingValue={review.rating} className="star-rating" /> */}
-                <FontAwesomeIcon icon="star" className="fas fa-star" />
-                <FontAwesomeIcon icon="star" className="fas fa-star" />
-                <FontAwesomeIcon icon="star" className="fas fa-star" />
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="far fa-star"></i>
+                {review.rating === 1 ? (
+                  <div>
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                    <FontAwesomeIcon icon={faStarRegular} className="fa-star" />
+                    <FontAwesomeIcon icon={faStarRegular} className="fa-star" />
+                    <FontAwesomeIcon icon={faStarRegular} className="fa-star" />
+                    <FontAwesomeIcon icon={faStarRegular} className="fa-star" />
+                  </div>
+                ) : (
+                  <></>
+                )}
+
+                {review.rating === 2 ? (
+                  <div>
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                    <FontAwesomeIcon icon={faStarRegular} className="fa-star" />
+                    <FontAwesomeIcon icon={faStarRegular} className="fa-star" />
+                    <FontAwesomeIcon icon={faStarRegular} className="fa-star" />
+                  </div>
+                ) : (
+                  <></>
+                )}
+
+                {review.rating === 3 ? (
+                  <div>
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                    <FontAwesomeIcon icon={faStarRegular} className="fa-star" />
+                    <FontAwesomeIcon icon={faStarRegular} className="fa-star" />
+                  </div>
+                ) : (
+                  <></>
+                )}
+
+                {review.rating === 4 ? (
+                  <div>
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                    <FontAwesomeIcon icon={faStarRegular} className="fa-star" />
+                  </div>
+                ) : (
+                  <></>
+                )}
+
+                {review.rating === 5 ? (
+                  <div>
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                    <FontAwesomeIcon icon={faStar} className="fa-star" />
+                  </div>
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
+            <div className="review-comment">{review.content}</div>
           </div>
         </div>
-        <FontAwesomeIcon icon="star" className="fas fa-star" />
       </section>
-      <FontAwesomeIcon icon="star" className="fas fa-star" />
 
       <h3>Rating: {review.rating}</h3>
       <q className="review-content">{review.content}</q>

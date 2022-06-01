@@ -60,7 +60,6 @@
   border-radius: 5px;
   width: 350px;
   margin-top: 5px;
-  /* margin-left: 50px; */
 }
 
 .home-page > .filter-form {
@@ -68,11 +67,20 @@
   text-align: center;
 }
 
-/* .genre-dropdown{
-  margin-left: 50px;
-  margin-top: 50px;
+.genre-dropdown{
+  padding: 8px 5px;
+  color: #333333;
+  background-color: #eeeeee;
+  border: 1px solid #dddddd;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
-} */
+.genre-dropdown:focus,
+.genre-dropdown:hover {
+  outline: none;
+  border: 1px solid #bbbbbb;
+}
 
 .filter-form {
   display: inline-block;

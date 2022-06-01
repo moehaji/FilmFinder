@@ -3,15 +3,14 @@ package com.revature.services;
 import com.revature.models.Movie;
 import com.revature.models.Review;
 import com.revature.models.User;
-import com.revature.repo.MovieRepo;
 import com.revature.repo.ReviewRepo;
 import com.revature.utils.LoggingUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.ArrayList;
 import java.util.List;
+import com.revature.repo.MovieRepo;
 
 @Service
 @Transactional
