@@ -107,12 +107,12 @@ public class Movie {
     public String toString() {
         return "Movie{" +
                 "movieId=" + movieId +
-                ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", year=" + year +
                 ", image='" + image + '\'' +
+                ", title='" + title + '\'' +
+                ", year=" + year +
                 ", genre=" + genre +
-                ", reviews=" + reviews +
+                //", reviews=" + reviews +
                 '}';
     }
 }

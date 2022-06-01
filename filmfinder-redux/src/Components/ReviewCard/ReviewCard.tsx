@@ -85,12 +85,14 @@ export const ReviewCard: React.FC<IReview> = (review: IReview) => {
           </div>
         </div>
       </section>
+    </div>
+  );
+};
 
-      <h3>Rating: {review.rating}</h3>
+/*
+<h3>Rating: {review.rating}</h3>
       <q className="review-content">{review.content}</q>
       <p className="review-author">
         - {review.reviewer.firstName} {review.reviewer.lastName}
       </p>
-    </div>
-  );
-};
+*/

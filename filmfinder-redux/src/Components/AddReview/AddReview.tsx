@@ -5,16 +5,19 @@ import { RootState } from "../../Store";
 import { Rating } from "react-simple-star-rating";
 import { AppDispatch } from "../../Store";
 import { useDispatch } from "react-redux";
-import { createReview } from "../../Slices/MovieSlice";
+import { clearCurrMovie, createReview, getCurrMovie } from "../../Slices/MovieSlice";
 import { IUser } from "../../Interfaces/IUser";
 import { IReview } from "../../Interfaces/IReview";
+import { toggleForm } from "../../Slices/MovieSlice"; 
 
 import "./AddReview.css";
 export const AddReview: React.FC = () => {
   const userInfo = useSelector((state: RootState) => state.user);
   const currMovie = useSelector((state: RootState) => state.movie);
+
   const [content, setContent] = useState<string>("");
   const [rating, setRating] = useState(0);
+  const [refresh, setRefresh] = useState(false);
 
   const dispatch: AppDispatch = useDispatch();
 
@@ -29,6 +32,7 @@ export const AddReview: React.FC = () => {
   };
 
   const handleSubmitReview = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     if (userInfo.user && currMovie.currMovie) {
       let userId: number = userInfo.user.userId;
       let movieId: number = currMovie.currMovie.movieId;
@@ -43,11 +47,11 @@ export const AddReview: React.FC = () => {
         userId,
         movieId,
       };
+      dispatch(toggleForm());
       dispatch(createReview(reviewContent));
     }
   };
 
-  console.log(currMovie.currMovie);
   return (
     <div className="add-review">
       <h1>Add Review</h1>

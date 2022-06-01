@@ -4,16 +4,28 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../Store";
 import "./Banner.css";
 import { AddReview } from "../AddReview/AddReview";
+import { useNavigate } from "react-router-dom";
+import { AppDispatch } from "../../Store";
+import { useDispatch } from "react-redux";
+import { toggleForm } from "../../Slices/MovieSlice";
 
 export const Banner: React.FC = () => {
 
   const currMovie = useSelector((state: RootState) => state.movie);
+  const userInfo = useSelector((state: RootState) => state.user);
   
-  const [showForm, setShowForm] = useState(false);
+  const dispatch: AppDispatch = useDispatch();
+  //const [showForm, setShowForm] = useState(false);
+  const navigator = useNavigate();
 
-  const toggleForm = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const toggleTheForm = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    setShowForm(!showForm);
+    if(userInfo.user) {
+      //setShowForm(!showForm);
+      dispatch(toggleForm());
+    } else {
+      navigator('/login');
+    }
   }
 
   return (
@@ -28,10 +40,10 @@ export const Banner: React.FC = () => {
           </div>
           <p>{currMovie.currMovie?.description}</p>
           <div className="banner-buttons">
-            <button className="banner-button" onClick={toggleForm}>Add Review</button>
+            <button className="banner-button" onClick={toggleTheForm}>Add Review</button>
             <button className="banner-button">Add to Favorites</button>
           </div>
-          {showForm ? <AddReview /> : <></>}
+          {currMovie.toggle ? <AddReview /> : <></>}
         </div>
       </div>
       <div className="banner-fadebottom"></div>

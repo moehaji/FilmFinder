@@ -7,10 +7,11 @@ import { clearCurrMovie, getAllMovies } from "../../Slices/MovieSlice";
 import { IMovie } from "../../Interfaces/IMovie";
 import { MovieCard } from "../../Components/MovieCard/MovieCard";
 import { useState } from "react";
+import { NavbarLoggedIn } from "../../Components/Navbar/NavbarLoggedIn";
 
 export const HomePage: React.FC = () => {
   const movieInfo = useSelector((state: RootState) => state.movie);
-  //const userInfo = useSelector((state: RootState) => state.user);
+  const userInfo = useSelector((state: RootState) => state.user);
 
   const [filter, setFilter] = useState<string>("");
   const [genreId, setGenreId] = useState<string>("");
@@ -47,7 +48,7 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="home-page">
-      <NavbarPublic />
+      {userInfo.user ? <NavbarLoggedIn /> : <NavbarPublic />}
       <h1>Home Page</h1>
       <form className="filter-form">
         <input

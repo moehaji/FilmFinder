@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import com.revature.repo.MovieRepo;
 
 @Service
 @Transactional
@@ -28,13 +27,13 @@ public class ReviewService {
     }
 
     public Review createReview(int rating, String content, int userId, int movieId) {
+        //System.out.println("Top of createReview");
         User u = uServ.getCurrentUserById(userId);
         Movie m = mServ.getMovieById(movieId);
-
-        System.out.println("Rating: "+rating+" Content: "+content+" User: "+u);//+" Movie: "+m); // The Movie doesn't seem to get retrieved correctly
+        //System.out.println("Rating: "+rating+" Content: "+content+" User: "+u+" Movie: "+m); // The Movie doesn't seem to get retrieved correctly
         Review create = new Review(rating, content, u, m);
 
-        System.out.println("Review object created: "+create);
+        //System.out.println("Review object created: "+create);
         LoggingUtil.logger.info("Comment probably created: " + create);
         return rRepo.save(create);
     }

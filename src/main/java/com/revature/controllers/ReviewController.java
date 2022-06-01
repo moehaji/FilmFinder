@@ -22,9 +22,11 @@ public class ReviewController {
 
     @PostMapping("/review/create")
     public ResponseEntity<Object> handleCreateReview(@RequestBody Review r, @RequestParam(name="userId") int userId, @RequestParam(name="movieId") int movieId){
+        //System.out.println("Top of controller");
         try{
+            System.out.println("Input -> R: "+r+" userId: "+userId+" movieId: "+movieId);
            Review rev = rServ.createReview(r.getRating(), r.getContent(), userId, movieId);
-           System.out.println("R: "+r+" userId: "+userId+" movieId: "+movieId);
+           System.out.println("Output -> Rev: "+rev);
             return new ResponseEntity<>(rev, HttpStatus.CREATED);
         } catch(Exception e){
             return new ResponseEntity<>("Can't create", HttpStatus.CONFLICT);

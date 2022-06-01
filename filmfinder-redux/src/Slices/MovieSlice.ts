@@ -8,11 +8,13 @@ interface MovieSliceState {
   error: boolean;
   movies?: IMovie[];
   currMovie?: IMovie;
+  toggle: boolean;
 }
 
 const initialMoviesState: MovieSliceState = {
   loading: false,
   error: false,
+  toggle: false,
 };
 
 type ReviewContent = {
@@ -58,15 +60,12 @@ export const createReview = createAsyncThunk(
   async (reviewContent: ReviewContent, thunkAPI) => {
   try {
     const res = await axios.post(`http://localhost:8000/review/create?userId=${reviewContent.userId}&movieId=${reviewContent.movieId}`, reviewContent.rev);
-    console.log("Review created: " + res.data);
+    console.log(res.data);
     return {
-      // movieId: res.data.movieId,
-      // description: res.data.description,
-      // title: res.data.title,
-      // genre: res.data.genre,
-      // image: res.data.image,
-      // year: res.data.year,
-      // reviews: res.data.reviews
+      reviewId: res.data.reviewId,
+      rating: res.data.rating,
+      content: res.data.content,
+      reviewer: res.data.reviewer
     };
   } catch (e) {
     console.log(e);
@@ -83,6 +82,9 @@ export const MoviesSlice = createSlice({
     clearCurrMovie: (state) => {
       state.currMovie = undefined;
     },
+    toggleForm: (state) => {
+      state.toggle = !state.toggle;
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(getAllMovies.pending, (state, action) => {
@@ -114,9 +116,17 @@ export const MoviesSlice = createSlice({
       state.error = true;
       state.loading = false;
     });
+
+    builder.addCase(createReview.fulfilled, (state, action) => {
+      if(state.currMovie?.reviews && action.payload) {
+        state.currMovie.reviews.push(action.payload);
+      }
+      state.loading = false;
+      state.error = false;
+    });
   },
 });
 
-export const { clearMovies, clearCurrMovie } = MoviesSlice.actions;
+export const { clearMovies, clearCurrMovie, toggleForm } = MoviesSlice.actions;
 
 export default MoviesSlice.reducer;

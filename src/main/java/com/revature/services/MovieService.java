@@ -38,7 +38,7 @@ public class MovieService {
     }
 
     public Movie getMovieById(int movieId) {
-        System.out.println("Inside getMovieById "+movieId);
+        //System.out.println("Inside getMovieById "+movieId);
         return mRepo.findById(movieId).get();
     }
 }
