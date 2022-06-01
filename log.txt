@@ -51,3 +51,5 @@
 2022-05-31 09:00:11 INFO  LoggingUtil:26 - User: gstan registered successfully
 2022-05-31 09:02:59 INFO  LoggingUtil:26 - User: mjoe registered successfully
 2022-05-31 14:13:30 INFO  LoggingUtil:36 - Comment probably created: Review{reviewId=0, rating=3, content='I saw this movie!', reviewer=User{userId=1, firstName='Justin', lastName='Tsuchiyama', username='jtsuch', email='justin235@revature.net', password='password'}, movieRated=null}
+2022-06-01 08:30:16 INFO  LoggingUtil:26 - User:  registered successfully
+2022-06-01 08:30:20 INFO  LoggingUtil:26 - User:  registered successfully

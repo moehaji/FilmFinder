@@ -6,7 +6,6 @@ import { RootState, AppDispatch } from "../../Store";
 import { clearCurrMovie, getAllMovies } from "../../Slices/MovieSlice";
 import { IMovie } from "../../Interfaces/IMovie";
 import { MovieCard } from "../../Components/MovieCard/MovieCard";
-import { clearMovies } from "../../Slices/MovieSlice";
 import { useState } from "react";
 
 export const HomePage: React.FC = () => {
@@ -55,7 +54,7 @@ export const HomePage: React.FC = () => {
           id="search"
           type="text"
           name="search"
-          placeholder="search"
+          placeholder="Search"
           autoComplete="off"
           onChange={handleInput}
           className="movie-input"
