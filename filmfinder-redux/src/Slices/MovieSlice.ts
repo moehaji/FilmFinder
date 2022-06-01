@@ -28,7 +28,6 @@ export const getAllMovies = createAsyncThunk(
   async (thunkAPI) => {
   try {
     const res = await axios.get(`http://localhost:8000/movie/all`);
-    console.log("List of all movies: " + res.data);
     return res.data;
   } catch (e) {
     console.log(e);
@@ -40,7 +39,8 @@ export const getCurrMovie = createAsyncThunk(
   async (id: number | string, thunkAPI) => {
   try {
     const res = await axios.get(`http://localhost:8000/movie/${id}`);
-    console.log("Movie we get: " + res.data);
+    console.log("Movie we get: ");
+    console.log(res.data);
     return {
       movieId: res.data.movieId,
       description: res.data.description,

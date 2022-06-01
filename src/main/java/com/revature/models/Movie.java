@@ -30,9 +30,10 @@ public class Movie {
     @JoinColumn(name="genre_id")
     private Genre genre;
 
+    //@JsonIgnore
     @OneToMany(mappedBy = "movieRated", cascade = CascadeType.ALL)
-    //@JoinColumn(name="review_id")
     private List<Review> reviews;
+
 
     public Movie() {
     }

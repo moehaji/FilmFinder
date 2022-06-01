@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import com.revature.exceptions.InvalidCredentialsException;
+import com.revature.models.Review;
 import com.revature.utils.MailingUtil;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -83,6 +85,17 @@ public class UserController {
         return uServ.getCurrentUserById(userId);
     }
 
-
+    @PostMapping("/user/favorite")
+    public ResponseEntity<Object> handleFavoriteMovie(@RequestParam(name="userId") int userId, @RequestParam(name="movieId") int movieId){
+        try{
+            User u = uServ.favoriteMovie(userId, movieId);
+            System.out.println("USER AFTER: "+u);
+            //return u;
+            return new ResponseEntity<>(u, HttpStatus.CREATED);
+        } catch(Exception e){
+            //return new User();
+            return new ResponseEntity<>("Can't get that movie", HttpStatus.CONFLICT);
+        }
+    }
 
 }

@@ -38,7 +38,8 @@ export const loginUser = createAsyncThunk(
             firstName: res.data.firstName,
             lastName: res.data.lastName,
             username: res.data.username,
-            password: res.data.password
+            password: res.data.password,
+            favorites: res.data.favorites
       };
     } catch (e) {
       console.log(e);
@@ -57,7 +58,8 @@ export const loginUser = createAsyncThunk(
             firstName: res.data.firstName,
             lastName: res.data.lastName,
             username: res.data.username,
-            password: res.data.password
+            password: res.data.password,
+            favorites: res.data.favorites
       };
     } catch (e) {
       console.log(e);

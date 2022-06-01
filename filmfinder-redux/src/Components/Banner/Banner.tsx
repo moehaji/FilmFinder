@@ -15,8 +15,27 @@ export const Banner: React.FC = () => {
   const userInfo = useSelector((state: RootState) => state.user);
   
   const dispatch: AppDispatch = useDispatch();
-  //const [showForm, setShowForm] = useState(false);
+  const [favButton, setFavButton] = useState(true);
   const navigator = useNavigate();
+
+  useEffect(() => {
+    console.log("OUTSIDE OF IF");
+    console.log(userInfo.user);
+    console.log(currMovie.currMovie);
+    // if(userInfo.user && currMovie.currMovie) {
+    //   // Get the users favorite movie list
+    //   console.log("top of list");
+    //   let favs: IMovie[] = userInfo.user.favorites;
+    //   console.log(favs);
+    //   // Loop through their list and check if the current movie is favorited
+    //   for(let i: number = 0; i < favs.length; i++) {
+    //     console.log(favs[i].movieId);
+    //     if(favs[i].movieId == currMovie.currMovie?.movieId) {
+    //       setFavButton(false); // If favorited, change toggle
+    //     }
+    //   }
+    //}
+  }, []); //[currMovie.currMovie, userInfo.user?.favorites]);
 
   const toggleTheForm = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -26,6 +45,16 @@ export const Banner: React.FC = () => {
     } else {
       navigator('/login');
     }
+  }
+
+  const toggleFavoriteOn = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setFavButton(true);
+  }
+
+  const toggleFavoriteOff = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setFavButton(false);
   }
 
   return (
@@ -41,7 +70,9 @@ export const Banner: React.FC = () => {
           <p>{currMovie.currMovie?.description}</p>
           <div className="banner-buttons">
             <button className="banner-button" onClick={toggleTheForm}>Add Review</button>
-            <button className="banner-button">Add to Favorites</button>
+            {favButton ? <button className="banner-button" onClick={toggleFavoriteOff}>Add Favorite</button> 
+            : 
+            <button className="banner-button" onClick={toggleFavoriteOn}>Remove from Favorites</button>}
           </div>
           {currMovie.toggle ? <AddReview /> : <></>}
         </div>

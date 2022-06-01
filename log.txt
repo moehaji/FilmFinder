@@ -77,3 +77,18 @@
 2022-06-01 13:02:29 INFO  LoggingUtil:37 - Comment probably created: Review{reviewId=0, rating=5, content='This is a test', reviewer=User{userId=1, firstName='Justin', lastName='Tsuchiyama', username='jtsuch', email='justin235@revature.net', password='password'}, movieRated=Movie{movieId=5, description='About outerspace', image='https://m.media-amazon.com/images/M/MV5BNzg4MjQxNTQtZmI5My00YjMwLWJlMjUtMmJlY2U2ZWFlNzY1XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_FMjpg_UX1000_.jpg', title='Star Wars', year=1977, genre=Genre{genreId=7, genreName='Sci-Fi'}}}
 2022-06-01 13:02:49 INFO  LoggingUtil:37 - Comment probably created: Review{reviewId=0, rating=4, content='This is another test', reviewer=User{userId=1, firstName='Justin', lastName='Tsuchiyama', username='jtsuch', email='justin235@revature.net', password='password'}, movieRated=Movie{movieId=8, description='Three professional gunslingers the Good, the Bad, and the Ugly must all battle it out to get their hands on $200,000.00 worth of gold.', image='https://imdb-api.com/images/original/MV5BNjJlYmNkZGItM2NhYy00MjlmLTk5NmQtNjg1NmM2ODU4OTMwXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_Ratio0.6751_AL_.jpg', title='The Good, the Bad and the Ugly', year=1966, genre=Genre{genreId=1, genreName='Action'}}}
 2022-06-01 13:04:45 INFO  LoggingUtil:37 - Comment probably created: Review{reviewId=0, rating=4, content='Was shiny', reviewer=User{userId=1, firstName='Justin', lastName='Tsuchiyama', username='jtsuch', email='justin235@revature.net', password='password'}, movieRated=Movie{movieId=11, description='Haunted by a persistent writers block, the aspiring author and recovering alcoholic, Jack Torrance, drags his wife, Wendy, and his gifted son, Danny, up snow-capped Colorados secluded Overlook Hotel after taking up a job as an off-season caretaker.', image='https://imdb-api.com/images/original/MV5BZWFlYmY2MGEtZjVkYS00YzU4LTg0YjQtYzY1ZGE3NTA5NGQxXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_Ratio0.6751_AL_.jpg', title='The Shining', year=1980, genre=Genre{genreId=3, genreName='Horror'}}}
+2022-06-01 14:45:30 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-01 15:05:45 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-01 15:08:02 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-01 15:08:53 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-01 15:12:14 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-01 15:12:58 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-01 15:13:16 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-01 15:19:22 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-01 15:21:07 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-01 15:23:07 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-01 15:27:28 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-01 15:28:56 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-01 15:31:05 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-01 15:35:18 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-01 15:36:05 INFO  LoggingUtil:42 - User: jtsuch signed in successfully

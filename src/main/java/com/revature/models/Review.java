@@ -21,7 +21,7 @@ public class Review {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
-    //@JsonIgnore
+    @JsonIgnore // This seems to exclude reviewer from our getCurrMovie
     private User reviewer;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
