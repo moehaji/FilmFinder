@@ -64,6 +64,7 @@ export const HomePage: React.FC = () => {
           name="genre-filter"
           defaultValue={"default"}
           onChange={genreFilter}
+          className="genre-dropdown"
         >
           <option value="default" disabled>
             Genre

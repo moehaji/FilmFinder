@@ -9,18 +9,25 @@ import { IReview } from "../../Interfaces/IReview";
 import { ReviewCard } from "../../Components/ReviewCard/ReviewCard";
 
 export const MoviePage: React.FC = () => {
-
   const currMovie = useSelector((state: RootState) => state.movie);
 
   return (
-    <div className="main-page">
+    <div className="movie-page">
       <NavbarLoggedIn />
       <Banner />
       <h1>Reviews</h1>
+      <div className="testimonial-heading">
+        <span>Comment</span>
+        <h1>Reviews</h1>
+      </div>
+
       {currMovie.currMovie ? (
-          currMovie.currMovie.reviews.map((r: IReview) => {
-            return <ReviewCard {...r} />
-          })) : <></> }
+        currMovie.currMovie.reviews.map((r: IReview) => {
+          return <ReviewCard {...r} />;
+        })
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
