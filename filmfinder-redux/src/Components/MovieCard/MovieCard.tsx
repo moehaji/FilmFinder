@@ -4,7 +4,7 @@ import { RootState, AppDispatch } from "../../Store";
 import { useSelector, useDispatch } from "react-redux";
 import "./MovieCard.css";
 import { useNavigate } from "react-router-dom";
-import { getCurrMovie } from "../../Slices/MovieSlice";
+import { getCurrMovie, getMovieReviews } from "../../Slices/MovieSlice";
 
 export const MovieCard: React.FC<IMovie> = (movie: IMovie) => {
   const navigator = useNavigate();
@@ -13,6 +13,7 @@ export const MovieCard: React.FC<IMovie> = (movie: IMovie) => {
   const goToMoviePage = (event: React.MouseEvent<HTMLDivElement>) => {
     console.log(`Going to movie page ${movie.movieId}`);
     dispatch(getCurrMovie(movie.movieId));
+    dispatch(getMovieReviews(movie.movieId));
     navigator(`/movie-page`);
   };
 

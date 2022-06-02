@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { reduceEachLeadingCommentRange } from "typescript";
 import { IMovie } from "../Interfaces/IMovie";
 import { IReview } from "../Interfaces/IReview";
 import {IUser} from "../Interfaces/IUser";
@@ -8,6 +9,7 @@ interface MovieSliceState {
   error: boolean;
   movies?: IMovie[];
   currMovie?: IMovie;
+  reviews?: IReview[];
   toggle: boolean;
 }
 
@@ -55,6 +57,19 @@ export const getCurrMovie = createAsyncThunk(
   }
 });
 
+export const getMovieReviews = createAsyncThunk(
+  "review/id", 
+  async (id: number | string, thunkAPI) => {
+  try {
+    const res = await axios.get(`http://localhost:8000/review/${id}`);
+    console.log("Reviews: ");
+    console.log(res.data);
+    return res.data;
+  } catch (e) {
+    console.log(e);
+  }
+});
+
 export const createReview = createAsyncThunk(
   "review/create", 
   async (reviewContent: ReviewContent, thunkAPI) => {
@@ -81,6 +96,9 @@ export const MoviesSlice = createSlice({
     },
     clearCurrMovie: (state) => {
       state.currMovie = undefined;
+    },
+    clearReviews: (state) => {
+      state.reviews = undefined;
     },
     toggleForm: (state) => {
       state.toggle = !state.toggle;
@@ -118,15 +136,30 @@ export const MoviesSlice = createSlice({
     });
 
     builder.addCase(createReview.fulfilled, (state, action) => {
-      if(state.currMovie?.reviews && action.payload) {
-        state.currMovie.reviews.push(action.payload);
+      if(state.reviews && action.payload) {
+        state.reviews.push(action.payload);
       }
       state.loading = false;
       state.error = false;
     });
+
+    builder.addCase(getMovieReviews.pending, (state, action) => {
+      state.loading = true;
+    });
+
+    builder.addCase(getMovieReviews.fulfilled, (state, action) => {
+      state.reviews = action.payload;
+      state.loading = false;
+      state.error = false;
+    });
+
+    builder.addCase(getMovieReviews.rejected, (state, action) => {
+      state.error = true;
+      state.loading = false;
+    });
   },
 });
 
-export const { clearMovies, clearCurrMovie, toggleForm } = MoviesSlice.actions;
+export const { clearMovies, clearCurrMovie, clearReviews, toggleForm } = MoviesSlice.actions;
 
 export default MoviesSlice.reducer;

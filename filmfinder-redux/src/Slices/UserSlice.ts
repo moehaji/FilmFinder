@@ -26,6 +26,11 @@ type Register = {
   email: string
 }
 
+type Favorites = {
+  userId: number,
+  movieId: number,
+}
+
 export const loginUser = createAsyncThunk(
     "user/login", 
     async (login: Login, thunkAPI) => {
@@ -60,6 +65,66 @@ export const loginUser = createAsyncThunk(
             username: res.data.username,
             password: res.data.password,
             favorites: res.data.favorites
+      };
+    } catch (e) {
+      console.log(e);
+    }
+  });
+
+  export const updateUser = createAsyncThunk(
+    "user/update", 
+    async (register: Register, thunkAPI) => {
+    try {
+      const res = await axios.put(`http://localhost:8000/user/update`, register);
+      console.log("User: " + res.data);
+      return {
+            userId: res.data.userId,
+            email: res.data.email,
+            firstName: res.data.firstName,
+            lastName: res.data.lastName,
+            username: res.data.username,
+            password: res.data.password,
+            favorites: res.data.favorites
+      };
+    } catch (e) {
+      console.log(e);
+    }
+  });
+
+  export const favoriteMovie = createAsyncThunk(
+    "user/favorite", 
+    async (favs: Favorites, thunkAPI) => {
+    try {
+      const res = await axios.post(`http://localhost:8000/user/favorite?userId=${favs.userId}&movieId=${favs.movieId}`);
+      console.log(res.data);
+      return {
+        userId: res.data.userId,
+        email: res.data.email,
+        firstName: res.data.firstName,
+        lastName: res.data.lastName,
+        username: res.data.username,
+        password: res.data.password,
+        favorites: res.data.favorites
+      };
+    } catch (e) {
+      console.log(e);
+    }
+  });
+
+  export const removeFavoriteMovie = createAsyncThunk(
+    "user/delete", 
+    async (favs: Favorites, thunkAPI) => {
+    try {
+      const res = await axios.delete(`http://localhost:8000/user/delete?userId=${favs.userId}&movieId=${favs.movieId}`);
+      console.log(res.data);
+      return {
+        userId: res.data.userId,
+        email: res.data.email,
+        firstName: res.data.firstName,
+        lastName: res.data.lastName,
+        username: res.data.username,
+        password: res.data.password,
+        favorites: res.data.favorites
       };
     } catch (e) {
       console.log(e);
@@ -101,6 +166,51 @@ export const UserSlice = createSlice({
     });
 
     builder.addCase(registerUser.rejected, (state, action) => {
+      state.error = true;
+      state.loading = false;
+    });
+
+    builder.addCase(favoriteMovie.pending, (state, action) => {
+      state.loading = true;
+    });
+
+    builder.addCase(favoriteMovie.fulfilled, (state, action) => {
+      state.user = action.payload;
+      state.loading = false;
+      state.error = false;
+    });
+
+    builder.addCase(favoriteMovie.rejected, (state, action) => {
+      state.error = true;
+      state.loading = false;
+    });
+
+    builder.addCase(removeFavoriteMovie.pending, (state, action) => {
+      state.loading = true;
+    });
+
+    builder.addCase(removeFavoriteMovie.fulfilled, (state, action) => {
+      state.user = action.payload;
+      state.loading = false;
+      state.error = false;
+    });
+
+    builder.addCase(removeFavoriteMovie.rejected, (state, action) => {
+      state.error = true;
+      state.loading = false;
+    });
+
+    builder.addCase(updateUser.pending, (state, action) => {
+      state.loading = true;
+    });
+
+    builder.addCase(updateUser.fulfilled, (state, action) => {
+      state.user = action.payload;
+      state.loading = false;
+      state.error = false;
+    });
+
+    builder.addCase(updateUser.rejected, (state, action) => {
       state.error = true;
       state.loading = false;
     });

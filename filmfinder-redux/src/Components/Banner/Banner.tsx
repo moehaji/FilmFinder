@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { AppDispatch } from "../../Store";
 import { useDispatch } from "react-redux";
 import { toggleForm } from "../../Slices/MovieSlice";
+import { favoriteMovie, removeFavoriteMovie } from "../../Slices/UserSlice";
+import { IMovie } from "../../Interfaces/IMovie";
 
 export const Banner: React.FC = () => {
   const currMovie = useSelector((state: RootState) => state.movie);
@@ -17,23 +19,17 @@ export const Banner: React.FC = () => {
   const navigator = useNavigate();
 
   useEffect(() => {
-    console.log("OUTSIDE OF IF");
-    console.log(userInfo.user);
-    console.log(currMovie.currMovie);
-    // if(userInfo.user && currMovie.currMovie) {
-    //   // Get the users favorite movie list
-    //   console.log("top of list");
-    //   let favs: IMovie[] = userInfo.user.favorites;
-    //   console.log(favs);
-    //   // Loop through their list and check if the current movie is favorited
-    //   for(let i: number = 0; i < favs.length; i++) {
-    //     console.log(favs[i].movieId);
-    //     if(favs[i].movieId == currMovie.currMovie?.movieId) {
-    //       setFavButton(false); // If favorited, change toggle
-    //     }
-    //   }
-    //}
-  }, []); //[currMovie.currMovie, userInfo.user?.favorites]);
+    if(userInfo.user && currMovie.currMovie) {
+      // Get the users favorite movie list
+      let favs: IMovie[] = userInfo.user.favorites;
+      // Loop through their list and check if the current movie is favorited
+      for(let i: number = 0; i < favs.length; i++) {
+        if(favs[i].movieId == currMovie.currMovie?.movieId) {
+          setFavButton(false); // If favorited, change toggle
+        }
+      }
+    }
+  }, [userInfo.user, currMovie.currMovie]); //[currMovie.currMovie, userInfo.user?.favorites]);
 
   const toggleTheForm = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -47,12 +43,30 @@ export const Banner: React.FC = () => {
 
   const toggleFavoriteOn = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    setFavButton(true);
+    if(userInfo.user && currMovie.currMovie) {
+      setFavButton(true);
+      let credentials = {
+        userId: userInfo.user.userId,
+        movieId: currMovie.currMovie.movieId
+      }
+      dispatch(removeFavoriteMovie(credentials));
+    } else {
+      navigator("/login");
+    }
   };
 
   const toggleFavoriteOff = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    setFavButton(false);
+    if(userInfo.user && currMovie.currMovie) {
+      setFavButton(false);
+      let credentials = {
+        userId: userInfo.user.userId,
+        movieId: currMovie.currMovie.movieId
+      }
+      dispatch(favoriteMovie(credentials));
+    } else {
+      navigator("/login");
+    }
   };
 
   return (

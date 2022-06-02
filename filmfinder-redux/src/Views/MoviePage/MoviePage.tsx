@@ -17,7 +17,7 @@ export const MoviePage: React.FC = () => {
   //const dispatch: AppDispatch = useDispatch();
 
   // useEffect(() => {
-  //     console.log("Inside of movie page");
+  //     console.log(window.localStorage.getItem("username"));
   // }, [currMovie.currMovie?.reviews]);
 
   return (
@@ -30,8 +30,8 @@ export const MoviePage: React.FC = () => {
         <h1>Reviews</h1>
       </div>
 
-      {currMovie.currMovie ? (
-        currMovie.currMovie.reviews.map((r: IReview) => {
+      {currMovie.reviews? (
+        currMovie.reviews.map((r: IReview) => {
           return <ReviewCard {...r} />;
         })
       ) : (

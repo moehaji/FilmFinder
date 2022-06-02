@@ -45,7 +45,7 @@ public class UserService {
     }
 
     public User updateUser(int id, String firstName, String lastName, String username, String password, String email) {
-        User updatedUser = new User(id, firstName, lastName, username, password, email);
+        User updatedUser = new User(id, firstName, lastName, username, email, password);
         if (updatedUser == null) {
             LoggingUtil.logger.error("Cannot update that user");
             throw new InvalidCredentialsException();
@@ -66,6 +66,17 @@ public class UserService {
 
         Set<Movie> favs = u.getFavorites();
         favs.add(m);
+        u.setFavorites(favs);
+        return uRepo.save(u);
+    }
+
+    public User deleteFavoriteMovie(int userId, int movieId) {
+
+        User u = uRepo.findById(userId).get();
+        Movie m = mServ.getMovieById(movieId);
+
+        Set<Movie> favs = u.getFavorites();
+        favs.remove(m);
         u.setFavorites(favs);
         return uRepo.save(u);
     }

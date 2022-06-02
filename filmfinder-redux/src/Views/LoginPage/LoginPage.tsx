@@ -15,7 +15,7 @@ export const LoginPage: React.FC = () => {
     //console.log("user: "+userInfo.user);
     if (!userInfo.error && userInfo.user) {
       console.log("User logged in");
-      localStorage.setItem('username', userInfo.user.username);
+      window.localStorage.setItem('username', userInfo.user.username);
       navigator('/');
     }
   }, [userInfo]);

@@ -1,0 +1,18 @@
+.favorite-list {
+  display: flex;
+  margin: auto;
+}
+
+.profile-content {
+  height: 80vh;
+}
+
+.profile-box {
+  border: 2px solid var(--pink);
+  background-color: #ffcaf7;
+  border-radius: 5px;
+  width: fit-content;
+  margin: auto;
+  padding: 20px;
+  margin-top: 20px;
+}

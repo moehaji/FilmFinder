@@ -89,13 +89,19 @@ public class UserController {
     public ResponseEntity<Object> handleFavoriteMovie(@RequestParam(name="userId") int userId, @RequestParam(name="movieId") int movieId){
         try{
             User u = uServ.favoriteMovie(userId, movieId);
-            System.out.println("USER AFTER: "+u);
-            //return u;
             return new ResponseEntity<>(u, HttpStatus.CREATED);
         } catch(Exception e){
-            //return new User();
             return new ResponseEntity<>("Can't get that movie", HttpStatus.CONFLICT);
         }
     }
 
+    @DeleteMapping("/user/delete")
+    public ResponseEntity<Object> handleDeleteFavoriteMovie(@RequestParam(name="userId") int userId, @RequestParam(name="movieId") int movieId){
+        try{
+            User u = uServ.deleteFavoriteMovie(userId, movieId);
+            return new ResponseEntity<>(u, HttpStatus.CREATED);
+        } catch(Exception e){
+            return new ResponseEntity<>("Cannot delete favorite status that movie", HttpStatus.CONFLICT);
+        }
+    }
 }

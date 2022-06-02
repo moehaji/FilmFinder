@@ -26,7 +26,7 @@ public class Review {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="movie_id")
-    @JsonIgnore
+    //@JsonIgnore
     private Movie movieRated;
 
     public Review() {

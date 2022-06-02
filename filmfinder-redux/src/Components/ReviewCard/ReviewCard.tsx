@@ -5,8 +5,6 @@ import React from "react";
 import { IReview } from "../../Interfaces/IReview";
 
 export const ReviewCard: React.FC<IReview> = (review: IReview) => {
-  console.log("Review Card: ");
-  console.log(review);
   return (
     <div className="review-card">
       <section id="testimonials">
