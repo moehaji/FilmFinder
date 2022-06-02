@@ -66,7 +66,10 @@ export const Banner: React.FC = () => {
             <h4>{currMovie.currMovie?.year}</h4>
             <h4>{currMovie.currMovie?.genre.genreName}</h4>
           </div>
-          <p>{currMovie.currMovie?.description}</p>
+          <div className="movie-description">
+            <p>{currMovie.currMovie?.description}</p>
+          </div>
+
           <div className="banner-buttons">
             <button className="banner-button" onClick={toggleTheForm}>
               Add Review

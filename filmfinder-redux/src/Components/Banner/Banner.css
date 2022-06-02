@@ -75,3 +75,11 @@
 .year-genre-rating h4 {
   margin-right: 20px;
 }
+
+.movie-description {
+  inline-size: 400px; 
+}
+
+.movie-description  p {
+  font-weight: 170;
+}
