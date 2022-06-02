@@ -92,3 +92,7 @@
 2022-06-01 15:31:05 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
 2022-06-01 15:35:18 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
 2022-06-01 15:36:05 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-02 09:15:34 ERROR LoggingUtil:33 - User with username:  was not found in the database
+2022-06-02 09:15:34 ERROR LoggingUtil:33 - User with username:  was not found in the database
+2022-06-02 09:15:34 ERROR LoggingUtil:33 - User with username:  was not found in the database
+2022-06-02 09:15:35 ERROR LoggingUtil:33 - User with username:  was not found in the database

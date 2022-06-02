@@ -3,6 +3,7 @@ import "./MoviePage.css";
 import { RootState } from "../../Store";
 import { useSelector } from "react-redux";
 import { NavbarLoggedIn } from "../../Components/Navbar/NavbarLoggedIn";
+import { NavbarPublic } from "../../Components/Navbar/NavbarPublic";
 import { Banner } from "../../Components/Banner/Banner";
 import { IReview } from "../../Interfaces/IReview";
 import { ReviewCard } from "../../Components/ReviewCard/ReviewCard";
@@ -11,6 +12,7 @@ import { MarginSpace } from "../../Components/MarginSpace/MarginSpace";
 
 export const MoviePage: React.FC = () => {
   const currMovie = useSelector((state: RootState) => state.movie);
+  const userInfo = useSelector((state: RootState) => state.user);
 
   //const dispatch: AppDispatch = useDispatch();
 
@@ -20,7 +22,8 @@ export const MoviePage: React.FC = () => {
 
   return (
     <div className="movie-page">
-      <NavbarLoggedIn />
+      {userInfo.user ? <NavbarLoggedIn /> : <NavbarPublic />}
+      {/* <NavbarLoggedIn /> */}
       <Banner />
       <div className="testimonial-heading">
         <span>Comment</span>

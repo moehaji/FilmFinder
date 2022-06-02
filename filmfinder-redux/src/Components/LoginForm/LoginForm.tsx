@@ -23,14 +23,14 @@ export const LoginForm: React.FC = () => {
 
   const handleLogin = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-      let credentials = {
-        username,
-        password,
-      };
-  
-      dispatch(loginUser(credentials));
-      //navigator('/');
+    let credentials = {
+      username,
+      password,
     };
+
+    dispatch(loginUser(credentials));
+    //navigator('/');
+  };
 
   return (
     <div className="center">

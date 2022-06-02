@@ -17,7 +17,7 @@ export const NavbarPublic: React.FC = () => {
     <div>
       <nav className="navbar">
         <h2>
-          <Link to={""} className="logo">
+          <Link to={"/"} className="logo">
             Film<span>Finder</span>
           </Link>
         </h2>
