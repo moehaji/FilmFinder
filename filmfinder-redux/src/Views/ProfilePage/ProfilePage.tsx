@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Store";
 import { NavbarLoggedIn } from "../../Components/Navbar/NavbarLoggedIn";
+import { Footer } from "../../Components/Footer/Footer";
 
 export const ProfilePage: React.FC = () => {
-
   const currUser = useSelector((state: RootState) => state.user);
 
   return (
     <>
       <NavbarLoggedIn />
-      <h1>{currUser.user?.firstName} {currUser.user?.lastName}</h1>
+      <h1>
+        {currUser.user?.firstName} {currUser.user?.lastName}
+      </h1>
+      <Footer />
     </>
   );
 };

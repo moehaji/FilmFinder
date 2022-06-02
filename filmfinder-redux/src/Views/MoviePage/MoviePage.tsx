@@ -6,6 +6,8 @@ import { NavbarLoggedIn } from "../../Components/Navbar/NavbarLoggedIn";
 import { Banner } from "../../Components/Banner/Banner";
 import { IReview } from "../../Interfaces/IReview";
 import { ReviewCard } from "../../Components/ReviewCard/ReviewCard";
+import { Footer } from "../../Components/Footer/Footer";
+import { MarginSpace } from "../../Components/MarginSpace/MarginSpace";
 
 export const MoviePage: React.FC = () => {
   const currMovie = useSelector((state: RootState) => state.movie);
@@ -20,7 +22,6 @@ export const MoviePage: React.FC = () => {
     <div className="movie-page">
       <NavbarLoggedIn />
       <Banner />
-      <h1>Reviews</h1>
       <div className="testimonial-heading">
         <span>Comment</span>
         <h1>Reviews</h1>
@@ -33,6 +34,8 @@ export const MoviePage: React.FC = () => {
       ) : (
         <></>
       )}
+      <MarginSpace />
+      <Footer />
     </div>
   );
 };

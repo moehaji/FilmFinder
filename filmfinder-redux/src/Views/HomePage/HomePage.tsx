@@ -8,6 +8,7 @@ import { IMovie } from "../../Interfaces/IMovie";
 import { MovieCard } from "../../Components/MovieCard/MovieCard";
 import { useState } from "react";
 import { NavbarLoggedIn } from "../../Components/Navbar/NavbarLoggedIn";
+import { Footer } from "../../Components/Footer/Footer";
 
 export const HomePage: React.FC = () => {
   const movieInfo = useSelector((state: RootState) => state.movie);
@@ -49,7 +50,7 @@ export const HomePage: React.FC = () => {
   return (
     <div className="home-page">
       {userInfo.user ? <NavbarLoggedIn /> : <NavbarPublic />}
-      <h1>Home Page</h1>
+
       <form className="filter-form">
         <input
           id="search"
@@ -104,6 +105,7 @@ export const HomePage: React.FC = () => {
           <h1>Loading...</h1>
         )}
       </div>
+      <Footer />
     </div>
   );
 };
