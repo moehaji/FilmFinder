@@ -96,3 +96,10 @@
 2022-06-02 09:15:34 ERROR LoggingUtil:33 - User with username:  was not found in the database
 2022-06-02 09:15:34 ERROR LoggingUtil:33 - User with username:  was not found in the database
 2022-06-02 09:15:35 ERROR LoggingUtil:33 - User with username:  was not found in the database
+2022-06-02 12:06:44 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-02 12:10:45 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-02 12:10:47 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-02 12:27:36 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-02 12:30:59 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-02 12:39:11 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-02 12:39:19 INFO  LoggingUtil:37 - Comment probably created: Review{reviewId=0, rating=3, content='good movie', reviewer=User{userId=1, firstName='Justin', lastName='Tsuchiyama', username='jtsuch', email='justin235@revature.net', password='password'}, movieRated=Movie{movieId=6, description='About a bat', image='https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg', title='The Batman', year=2022, genre=Genre{genreId=1, genreName='Action'}}}

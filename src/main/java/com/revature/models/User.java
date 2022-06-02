@@ -33,6 +33,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "reviewer", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Review> reviews;
 
     @ManyToMany(cascade = CascadeType.ALL)

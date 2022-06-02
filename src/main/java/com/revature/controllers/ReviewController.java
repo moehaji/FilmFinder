@@ -16,13 +16,11 @@ public class ReviewController {
 
     @Autowired
     public ReviewController(ReviewService rServ) {
-
         this.rServ = rServ;
     }
 
     @PostMapping("/review/create")
     public ResponseEntity<Object> handleCreateReview(@RequestBody Review r, @RequestParam(name="userId") int userId, @RequestParam(name="movieId") int movieId){
-        //System.out.println("Top of controller");
         try{
             System.out.println("Input -> R: "+r+" userId: "+userId+" movieId: "+movieId);
            Review rev = rServ.createReview(r.getRating(), r.getContent(), userId, movieId);

@@ -24,16 +24,17 @@ public class MovieService {
         this.uRepo = uRepo;
     }
 
-    public List<Movie> getByGenre(int genreId) {
-        List<Movie> movieGenreList;
-
-        movieGenreList = mRepo.findByGenre(genreId);
-
-        return movieGenreList;
-    }
+//    public List<Movie> getByGenre(int genreId) {
+//        List<Movie> movieGenreList;
+//
+//        movieGenreList = mRepo.findByGenre(genreId);
+//
+//        return movieGenreList;
+//    }
 
     public List<Movie> getAllMovies() {
         List<Movie> moviesList = mRepo.findAll();
+        System.out.println("Below findAll");
         return moviesList;
     }
 
