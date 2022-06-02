@@ -46,6 +46,7 @@
 .footer ul li .link:hover {
     opacity: 1;
     color: var(--pink); 
+    transition: 0.4s;
 }
 
 .footer .copyright {

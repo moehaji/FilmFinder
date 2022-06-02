@@ -1,8 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import { Link, useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-regular-svg-icons";
+import { Link } from "react-router-dom";
 
 export const Footer: React.FC = () => {
   return (

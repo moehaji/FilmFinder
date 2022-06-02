@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { IMovie } from "../../Interfaces/IMovie";
+import "./Banner.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Store";
-import "./Banner.css";
 import { AddReview } from "../AddReview/AddReview";
 import { useNavigate } from "react-router-dom";
 import { AppDispatch } from "../../Store";
@@ -10,10 +9,9 @@ import { useDispatch } from "react-redux";
 import { toggleForm } from "../../Slices/MovieSlice";
 
 export const Banner: React.FC = () => {
-
   const currMovie = useSelector((state: RootState) => state.movie);
   const userInfo = useSelector((state: RootState) => state.user);
-  
+
   const dispatch: AppDispatch = useDispatch();
   const [favButton, setFavButton] = useState(true);
   const navigator = useNavigate();
@@ -39,28 +37,29 @@ export const Banner: React.FC = () => {
 
   const toggleTheForm = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    if(userInfo.user) {
+    if (userInfo.user) {
       //setShowForm(!showForm);
       dispatch(toggleForm());
     } else {
-      navigator('/login');
+      navigator("/login");
     }
-  }
+  };
 
   const toggleFavoriteOn = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setFavButton(true);
-  }
+  };
 
   const toggleFavoriteOff = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setFavButton(false);
-  }
+  };
 
   return (
     <div className="banner">
       <div className="banner-contents">
         <img className="movie-page-img" src={currMovie.currMovie?.image}></img>
+        <video src=""></video>
         <div className="movie-page-content">
           <h1 className="banner-title">{currMovie.currMovie?.title}</h1>
           <div className="year-genre-rating">
@@ -69,10 +68,18 @@ export const Banner: React.FC = () => {
           </div>
           <p>{currMovie.currMovie?.description}</p>
           <div className="banner-buttons">
-            <button className="banner-button" onClick={toggleTheForm}>Add Review</button>
-            {favButton ? <button className="banner-button" onClick={toggleFavoriteOff}>Add Favorite</button> 
-            : 
-            <button className="banner-button" onClick={toggleFavoriteOn}>Remove from Favorites</button>}
+            <button className="banner-button" onClick={toggleTheForm}>
+              Add Review
+            </button>
+            {favButton ? (
+              <button className="banner-button" onClick={toggleFavoriteOff}>
+                Add Favorite
+              </button>
+            ) : (
+              <button className="banner-button" onClick={toggleFavoriteOn}>
+                Remove from Favorites
+              </button>
+            )}
           </div>
           {currMovie.toggle ? <AddReview /> : <></>}
         </div>
