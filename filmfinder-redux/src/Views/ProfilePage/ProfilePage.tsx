@@ -12,11 +12,11 @@ import { AppDispatch } from "../../Store";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../Slices/UserSlice";
 import { IUser } from "../../Interfaces/IUser";
-import "../../Assets/menu.png";
-import "../../Assets/setting.png";
-import "../../Assets/profile-pic.png";
-import "../../Assets/instagram.png";
-import "../../Assets/arrow.png";
+import menu from "../../Assets/menu.png";
+import setting from "../../Assets/setting.png";
+import avatar from "../../Assets/default-avatar.png";
+import instagram from "../../Assets/instagram.png";
+import arrow from "../../Assets/arrow.png";
 
 export const ProfilePage: React.FC = () => {
   const currUser = useSelector((state: RootState) => state.user);
@@ -46,6 +46,8 @@ export const ProfilePage: React.FC = () => {
     }
   };
 
+  const showUserDetails = (event: React.MouseEvent<HTMLButtonElement>) => {};
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.name == "username") {
       setUsername(event.target.value);
@@ -61,14 +63,14 @@ export const ProfilePage: React.FC = () => {
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (currUser.user) {
-      let u : IUser = {
+      let u: IUser = {
         userId: currUser.user.userId,
         username: username,
         password: password,
         email: currUser.user.email,
         firstName: firstName,
         lastName: lastName,
-        favorites: currUser.user.favorites
+        favorites: currUser.user.favorites,
       };
       dispatch(updateUser(u));
       setToggleUpdate(false);
@@ -128,17 +130,38 @@ export const ProfilePage: React.FC = () => {
               </button>
             </form>
           ) : (
-            <>
-              <h1>User Profile:</h1>
-              <h2>Username: {currUser.user?.username}</h2>
-              <h2>
-                Name: {currUser.user?.firstName} {currUser.user?.lastName}
-              </h2>
-              <h2>Email: {currUser.user?.email}</h2>
-              <button className="update-profile-btn" onClick={updateProfile}>
-                Update
-              </button>
-            </>
+            <div>
+              <div className="container-box">
+                <div className="profile-container">
+                  <img src={menu} className="menu-icon" />
+                  <img src={setting} className="setting-icon" />
+                  <img src={avatar} className="profile-pic" />
+                  <h2>
+                    {currUser.user?.firstName} {currUser.user?.lastName}
+                  </h2>
+
+                  <div className="user-details">
+                    <h4>
+                      <span>Email:</span> {currUser.user?.email}
+                    </h4>
+                    <h4>
+                      <span>Username:</span> @{currUser.user?.username}
+                    </h4>
+                  </div>
+
+                  <div className="social-media">
+                    <img src="instagram.png" alt="" />
+                  </div>
+                  <button className="edit-profile-btn" onClick={updateProfile}>
+                    Edit
+                  </button>
+                  <div className="profile-bottom">
+                    <p>Learn More</p>
+                    <img src={arrow} />
+                  </div>
+                </div>
+              </div>
+            </div>
           )}
         </div>
         <h2>Favorite Movies:</h2>
@@ -152,28 +175,6 @@ export const ProfilePage: React.FC = () => {
           )}
         </div>
       </div>
-
-      {/* <div className="container-box">
-        <div className="profile-container">
-          <img src="menu.png" alt="" className="menu-icon" />
-          <img src="setting.png" alt="" className="setting-icon" />
-          <img src="profile-pic.png" alt="" className="profile-pic" />
-          <h3>
-            {currUser.user?.firstName} {currUser.user?.lastName}
-          </h3>
-          <p>I like movies</p>
-          <div className="social-media">
-            <img src="instagram.png" alt="" />
-          </div>
-          <button className="edit-profile-btn" onClick={updateProfile}>
-            Edit
-          </button>
-          <div className="profile-bottom">
-            <p>Learn More</p>
-            <img src="arrow.png" alt="" />
-          </div>
-        </div>
-      </div> */}
 
       <Footer />
     </>

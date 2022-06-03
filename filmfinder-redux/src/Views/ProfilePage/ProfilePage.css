@@ -4,10 +4,20 @@
 }
 
 .profile-content {
-  height: 80vh;
+  height: 100%;
 }
 
-.profile-box {
+/* .profile-box {
+  border: 2px solid var(--pink);
+  background-color: #ffcaf7;
+  border-radius: 5px;
+  width: fit-content;
+  margin: auto;
+  padding: 20px;
+  margin-top: 20px;
+} */
+
+.update-form {
   border: 2px solid var(--pink);
   background-color: #ffcaf7;
   border-radius: 5px;
@@ -21,6 +31,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .profile-container {
@@ -30,6 +42,7 @@
   color: var(--off-white);
   position: relative;
   border-radius: 20px;
+  box-shadow: 0 5px 10px rgba(244, 67, 54, 0.5);
 }
 
 .menu-icon {
@@ -65,10 +78,16 @@
   margin-top: -10px;
 }
 
+.arrow-btn {
+  border: none;
+  outline: none;
+  background: var(--off-white);
+}
+
 .profile-bottom img {
   width: 15px;
   margin-top: 15px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .edit-profile-btn {
@@ -85,8 +104,25 @@
   font-size: 16px;
 }
 
-.profile-container h3 {
+.profile-container h2 {
   font-size: 22px;
   margin-top: 20px;
+  font-weight: 750;
+}
+
+.profile-container h4 {
   font-weight: 500;
+}
+
+.user-details {
+  margin-top: 12px;
+  left: 0;
+}
+
+.user-details h4 {
+  text-align: left;
+}
+
+.user-details > h4 > span {
+  font-weight: 650;
 }
