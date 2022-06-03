@@ -21,7 +21,7 @@ public class Movie {
     @Column(name="description")
     private String description;
 
-    @Column(name="year")
+    @Column(name="date")
     private int year;
 
     @Column(name="image")
