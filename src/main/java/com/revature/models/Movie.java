@@ -21,7 +21,7 @@ public class Movie {
     @Column(name="description")
     private String description;
 
-    @Column(name="date")
+    @Column(name="year")
     private int year;
 
     @Column(name="image")
@@ -117,18 +117,13 @@ public class Movie {
         this.reviews = reviews;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Movie movie = (Movie) o;
-        return movieId == movie.movieId && year == movie.year && Objects.equals(title, movie.title) && Objects.equals(description, movie.description) && Objects.equals(image, movie.image) && Objects.equals(genre, movie.genre) && Objects.equals(reviews, movie.reviews);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(movieId, title, description, year, image, genre, reviews);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Movie movie = (Movie) o;
+//        return movieId == movie.movieId && year == movie.year && Objects.equals(title, movie.title) && Objects.equals(description, movie.description) && Objects.equals(image, movie.image) && Objects.equals(genre, movie.genre) && Objects.equals(reviews, movie.reviews);
+//    }
 
     @Override
     public String toString() {

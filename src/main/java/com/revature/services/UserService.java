@@ -62,6 +62,7 @@ public class UserService {
         User u = uRepo.findById(userId).get();
         Movie m = mServ.getMovieById(movieId);
 
+        System.out.println("Movie found");
         Set<Movie> favs = u.getFavorites();
         favs.add(m);
         u.setFavorites(favs);

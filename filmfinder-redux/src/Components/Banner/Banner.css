@@ -65,6 +65,7 @@
 
 .movie-page-img {
   height: 400px;
+  max-width: 350px;
   margin-right: 50px;
 }
 
@@ -77,9 +78,9 @@
 }
 
 .movie-description {
-  inline-size: 400px; 
+  inline-size: 400px;
 }
 
-.movie-description  p {
+.movie-description p {
   font-weight: 170;
 }

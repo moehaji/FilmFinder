@@ -46,7 +46,7 @@ export const ProfilePage: React.FC = () => {
     }
   };
 
-  const showUserDetails = (event: React.MouseEvent<HTMLButtonElement>) => {};
+  //const showUserDetails = (event: React.MouseEvent<HTMLButtonElement>) => {};
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.name == "username") {
@@ -72,6 +72,7 @@ export const ProfilePage: React.FC = () => {
         lastName: lastName,
         favorites: currUser.user.favorites,
       };
+      console.log(u);
       dispatch(updateUser(u));
       setToggleUpdate(false);
     }
@@ -142,6 +143,7 @@ export const ProfilePage: React.FC = () => {
                   <input
                     type="text"
                     name="firstName"
+                    value={firstName}
                     autoComplete="off"
                     onChange={handleChange}
                     required
@@ -153,6 +155,7 @@ export const ProfilePage: React.FC = () => {
                   <input
                     type="text"
                     name="lastName"
+                    value={lastName}
                     autoComplete="off"
                     onChange={handleChange}
                     required
@@ -164,6 +167,7 @@ export const ProfilePage: React.FC = () => {
                   <input
                     type="text"
                     name="username"
+                    value={username}
                     autoComplete="off"
                     onChange={handleChange}
                     required
@@ -175,6 +179,7 @@ export const ProfilePage: React.FC = () => {
                   <input
                     type="password"
                     name="password"
+                    value={password}
                     onChange={handleChange}
                     required
                   />
