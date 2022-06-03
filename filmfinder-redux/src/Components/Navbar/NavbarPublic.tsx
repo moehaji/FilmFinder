@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./NavbarPublic.css";
+import logo from "../../Assets/FFLogo.png";
 
 export const NavbarPublic: React.FC = () => {
   const navigator = useNavigate();
@@ -18,6 +19,7 @@ export const NavbarPublic: React.FC = () => {
       <nav className="navbar">
         <h2>
           <Link to={"/"} className="logo">
+            <img className="logo-icon" src={logo}></img>
             Film<span>Finder</span>
           </Link>
         </h2>

@@ -6,6 +6,7 @@ import { RootState } from "../../Store";
 import { AppDispatch } from "../../Store";
 import { useDispatch } from "react-redux";
 import { clearUser } from "../../Slices/UserSlice";
+import logo from "../../Assets/FFLogo.png";
 
 export const NavbarLoggedIn: React.FC = () => {
   const currUser = useSelector((state: RootState) => state.user);
@@ -27,6 +28,7 @@ export const NavbarLoggedIn: React.FC = () => {
       <nav className="navbar-loggedin">
         <h2>
           <Link to={"/"} className="logo">
+            <img className="logo-icon" src={logo}></img>
             Film<span>Finder</span>
           </Link>
         </h2>
