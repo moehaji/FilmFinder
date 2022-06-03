@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
+import "./ProfilePage.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Store";
 import { NavbarLoggedIn } from "../../Components/Navbar/NavbarLoggedIn";
 import { Footer } from "../../Components/Footer/Footer";
-import "../../Assets/avatar.jpg";
 import { userInfo } from "os";
 import { useNavigate } from "react-router-dom";
 import { IMovie } from "../../Interfaces/IMovie";
@@ -11,7 +11,11 @@ import { MovieCard } from "../../Components/MovieCard/MovieCard";
 import { AppDispatch } from "../../Store";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../Slices/UserSlice";
-import './ProfilePage.css';
+import "../../Assets/menu.png";
+import "../../Assets/setting.png";
+import "../../Assets/profile-pic.png";
+import "../../Assets/instagram.png";
+import "../../Assets/arrow.png";
 
 export const ProfilePage: React.FC = () => {
   const currUser = useSelector((state: RootState) => state.user);
@@ -43,21 +47,21 @@ export const ProfilePage: React.FC = () => {
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if(event.target.name == "username") {
+    if (event.target.name == "username") {
       setUsername(event.target.value);
-    } else if(event.target.name == "password") {
+    } else if (event.target.name == "password") {
       setPassword(event.target.value);
-    } else if(event.target.name == "email") {
+    } else if (event.target.name == "email") {
       setEmail(event.target.value);
-    } else if(event.target.name == "firstName") {
+    } else if (event.target.name == "firstName") {
       setFirstName(event.target.value);
     } else {
       setLastName(event.target.value);
     }
-  }
+  };
 
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if(currUser.user) {
+    if (currUser.user) {
       let credentials = {
         userId: currUser.user.userId,
         username: username,
@@ -65,10 +69,10 @@ export const ProfilePage: React.FC = () => {
         email: email,
         firstName: firstName,
         lastName: lastName,
-      }
+      };
       dispatch(updateUser(credentials));
     }
-  }
+  };
 
   return (
     <>
@@ -79,27 +83,72 @@ export const ProfilePage: React.FC = () => {
             <form className="update-form">
               <h3>Update</h3>
               <label className="label">Username: </label>
-              <input type="text" className="username" name="username" autoComplete="off" value={username} onChange={handleChange} required></input>
+              <input
+                type="text"
+                className="username"
+                name="username"
+                autoComplete="off"
+                value={username}
+                onChange={handleChange}
+                required
+              ></input>
               <label className="label">Password: </label>
-              <input type="password" className="password" name="password" autoComplete="off" value={password} onChange={handleChange} required></input>
+              <input
+                type="password"
+                className="password"
+                name="password"
+                autoComplete="off"
+                value={password}
+                onChange={handleChange}
+                required
+              ></input>
               <label className="label">Email: </label>
-              <input type="email" className="email" name="email" autoComplete="off" value={email} onChange={handleChange} required></input>
+              <input
+                type="email"
+                className="email"
+                name="email"
+                autoComplete="off"
+                value={email}
+                onChange={handleChange}
+                required
+              ></input>
               <label className="label">First Name: </label>
-              <input type="text" className="firstName" name="firstName" autoComplete="off" value={firstName} onChange={handleChange} required></input>
+              <input
+                type="text"
+                className="firstName"
+                name="firstName"
+                autoComplete="off"
+                value={firstName}
+                onChange={handleChange}
+                required
+              ></input>
               <label className="label">Last Name: </label>
-              <input type="text" className="lastName" name="lastName" autoComplete="off" value={lastName} onChange={handleChange} required></input>
-              <button className="update-profile-btn" onClick={handleSubmit}>Submit</button>
+              <input
+                type="text"
+                className="lastName"
+                name="lastName"
+                autoComplete="off"
+                value={lastName}
+                onChange={handleChange}
+                required
+              ></input>
+              <button className="update-profile-btn" onClick={handleSubmit}>
+                Submit
+              </button>
             </form>
           ) : (
             <>
               <h1>User Profile:</h1>
               <h2>Username: {currUser.user?.username}</h2>
-              <h2>Name: {currUser.user?.firstName} {currUser.user?.lastName}</h2>
+              <h2>
+                Name: {currUser.user?.firstName} {currUser.user?.lastName}
+              </h2>
               <h2>Email: {currUser.user?.email}</h2>
-              <button className="update-profile-btn" onClick={updateProfile}>Update</button>
+              <button className="update-profile-btn" onClick={updateProfile}>
+                Update
+              </button>
             </>
-          )
-          }
+          )}
         </div>
         <h2>Favorite Movies:</h2>
         <div className="favorite-list">
@@ -107,10 +156,34 @@ export const ProfilePage: React.FC = () => {
             currUser.user.favorites.map((m: IMovie) => {
               return <MovieCard {...m} />;
             })
-            ) : <></>
-          }
+          ) : (
+            <></>
+          )}
         </div>
       </div>
+
+      {/* <div className="container-box">
+        <div className="profile-container">
+          <img src="menu.png" alt="" className="menu-icon" />
+          <img src="setting.png" alt="" className="setting-icon" />
+          <img src="profile-pic.png" alt="" className="profile-pic" />
+          <h3>
+            {currUser.user?.firstName} {currUser.user?.lastName}
+          </h3>
+          <p>I like movies</p>
+          <div className="social-media">
+            <img src="instagram.png" alt="" />
+          </div>
+          <button className="edit-profile-btn" onClick={updateProfile}>
+            Edit
+          </button>
+          <div className="profile-bottom">
+            <p>Learn More</p>
+            <img src="arrow.png" alt="" />
+          </div>
+        </div>
+      </div> */}
+
       <Footer />
     </>
   );
