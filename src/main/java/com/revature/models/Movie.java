@@ -2,7 +2,9 @@ package com.revature.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name="movies")
@@ -46,6 +48,17 @@ public class Movie {
         this.image = image;
         this.genre = genre;
         this.reviews = reviews;
+    }
+
+    // For testing purposes
+    public Movie(String title, String description, int year, Genre genre) {
+        //this.movieId = movieId;
+        this.title = title;
+        this.description = description;
+        this.year = year;
+        this.image = "picture";
+        this.genre = genre;
+        this.reviews = new ArrayList<>();
     }
 
     public int getMovieId() {
@@ -105,6 +118,19 @@ public class Movie {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Movie movie = (Movie) o;
+        return movieId == movie.movieId && year == movie.year && Objects.equals(title, movie.title) && Objects.equals(description, movie.description) && Objects.equals(image, movie.image) && Objects.equals(genre, movie.genre) && Objects.equals(reviews, movie.reviews);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(movieId, title, description, year, image, genre, reviews);
+    }
+
+    @Override
     public String toString() {
         return "Movie{" +
                 "movieId=" + movieId +
@@ -113,7 +139,6 @@ public class Movie {
                 ", title='" + title + '\'' +
                 ", year=" + year +
                 ", genre=" + genre +
-                //", reviews=" + reviews +
                 '}';
     }
 }

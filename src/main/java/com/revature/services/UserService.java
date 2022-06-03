@@ -45,13 +45,11 @@ public class UserService {
     }
 
     public User updateUser(User u) { //int id, String firstName, String lastName, String username, String password, String email
-        //User updatedUser = new User(id, firstName, lastName, username, email, password);
-        if (u == null) {
-            LoggingUtil.logger.error("Cannot update that user");
-            throw new InvalidCredentialsException();
-        } else {
+        if(u.getUserId() >= 0) {
             LoggingUtil.logger.info("User: " + u.getUsername() + " updated successfully");
             return uRepo.save(u);
+        } else {
+            throw new InvalidCredentialsException();
         }
     }
 

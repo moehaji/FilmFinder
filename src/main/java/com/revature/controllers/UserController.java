@@ -69,14 +69,6 @@ public class UserController {
     @PutMapping("/user/update")
     public ResponseEntity<Object> handleUpdateUser(@RequestBody User u) {
 
-//        String userId = body.get("userId");
-//        String firstName = body.get("firstName");
-//        String lastName = body.get("lastName");
-//        String username = body.get("username");
-//        String password = body.get("password");
-//        Set<Movie> favorites = body.get("favorites");
-        //u.getUserId(), u.getFirstName(), u.getLastName(), u.getUsername(), u.getPassword(), u.getEmail()
-
         try{
             return new ResponseEntity<>(uServ.updateUser(u), HttpStatus.ACCEPTED);
         } catch(InvalidCredentialsException e){
@@ -84,16 +76,17 @@ public class UserController {
         }
     }
 
-    @GetMapping("/user/{id}")
-    public User getCurrentUser(@PathVariable("id")int userId){ // Could also use @RequestParam(name="user_id")int userId
-        return uServ.getCurrentUserById(userId);
-    }
+//    @GetMapping("/user/{id}")
+//    public User getCurrentUser(@PathVariable("id")int userId){ // Could also use @RequestParam(name="user_id")int userId
+//        return uServ.getCurrentUserById(userId);
+//    }
 
     @PostMapping("/user/favorite")
     public ResponseEntity<Object> handleFavoriteMovie(@RequestParam(name="userId") int userId, @RequestParam(name="movieId") int movieId){
         try{
             User u = uServ.favoriteMovie(userId, movieId);
-            return new ResponseEntity<>(u, HttpStatus.CREATED);
+            System.out.println("User: "+u);
+            return new ResponseEntity<>(u, HttpStatus.ACCEPTED);
         } catch(Exception e){
             return new ResponseEntity<>("Can't get that movie", HttpStatus.CONFLICT);
         }

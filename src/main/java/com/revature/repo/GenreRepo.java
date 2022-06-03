@@ -1,14 +1,14 @@
 package com.revature.repo;
 
 import com.revature.models.Movie;
+import com.revature.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
+import com.revature.models.Genre;
 
 @Repository
-public interface MovieRepo extends JpaRepository<Movie, Integer> {
+public interface GenreRepo extends JpaRepository<Genre, Integer> {
 
-    List<Movie> findByGenre(int genreId);
+    Genre findGenreByGenreId(int genreId);
 
 }

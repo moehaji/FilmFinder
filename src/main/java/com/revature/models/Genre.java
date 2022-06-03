@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name="genres")
@@ -30,6 +31,10 @@ public class Genre {
         this.genreName = genreName;
     }
 
+    public Genre(String genreName) {
+        this.genreName = genreName;
+    }
+
     public int getGenreId() {
         return genreId;
     }
@@ -44,6 +49,19 @@ public class Genre {
 
     public void setGenreName(String genreName) {
         this.genreName = genreName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Genre genre = (Genre) o;
+        return genreId == genre.genreId && Objects.equals(genreName, genre.genreName) && Objects.equals(movies, genre.movies);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(genreId, genreName, movies);
     }
 
     @Override

@@ -139,6 +139,8 @@ public class User {
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", reviews=" + reviews +
+                ", favorites=" + favorites +
                 '}';
     }
 }

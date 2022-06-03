@@ -135,3 +135,42 @@
 2022-06-03 07:58:23 INFO  LoggingUtil:53 - User: jtsuch updated successfully
 2022-06-03 07:58:49 INFO  LoggingUtil:37 - Comment probably created: Review{reviewId=0, rating=4, content='I think they shoot guns in this movie', reviewer=User{userId=3, firstName='Justin', lastName='Tsuchiyama', username='jtsuch', email='justin235@mail.com', password='password'}, movieRated=Movie{movieId=2, description='Three professional gunslingers the Good, the Bad, and the Ugly must all battle it out to get their hands on $200,000.00 worth of gold.', image='https://imdb-api.com/images/original/MV5BNjJlYmNkZGItM2NhYy00MjlmLTk5NmQtNjg1NmM2ODU4OTMwXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_Ratio0.6751_AL_.jpg', title='The Good, the Bad and the Ugly', year=1966, genre=Genre{genreId=1, genreName='Action'}}}
 2022-06-03 08:03:37 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-03 08:43:43 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 08:46:49 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 08:53:23 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 08:53:51 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 09:02:46 INFO  LoggingUtil:42 - User: jdoe signed in successfully
+2022-06-03 09:07:14 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 09:07:14 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 09:07:16 INFO  LoggingUtil:42 - User: jdoe signed in successfully
+2022-06-03 09:14:02 INFO  LoggingUtil:53 - User: Newjdoe updated successfully
+2022-06-03 11:16:53 INFO  LoggingUtil:53 - User: Newjdoe updated successfully
+2022-06-03 11:21:30 INFO  LoggingUtil:53 - User: Newjdoe updated successfully
+2022-06-03 11:34:04 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 11:34:04 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 11:34:07 INFO  LoggingUtil:42 - User: jdoe signed in successfully
+2022-06-03 11:34:07 INFO  LoggingUtil:53 - User: Newjdoe updated successfully
+2022-06-03 12:56:18 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 12:56:18 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 12:56:21 INFO  LoggingUtil:42 - User: jdoe signed in successfully
+2022-06-03 12:56:21 INFO  LoggingUtil:52 - User: Newjdoe updated successfully
+2022-06-03 12:57:12 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 12:57:13 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 12:57:14 INFO  LoggingUtil:42 - User: jdoe signed in successfully
+2022-06-03 12:57:15 INFO  LoggingUtil:52 - User: Newjdoe updated successfully
+2022-06-03 13:02:07 ERROR LoggingUtil:39 - User with username: FakePerson was not found in the database
+2022-06-03 13:03:00 ERROR LoggingUtil:39 - User with username: FakePerson was not found in the database
+2022-06-03 13:03:33 INFO  LoggingUtil:52 - User: Newjdoe updated successfully
+2022-06-03 13:06:12 ERROR LoggingUtil:39 - User with username: FakePerson was not found in the database
+2022-06-03 13:06:22 ERROR LoggingUtil:39 - User with username: FakePerson was not found in the database
+2022-06-03 13:10:38 INFO  LoggingUtil:52 - User: Newjdoe updated successfully
+2022-06-03 13:18:33 INFO  LoggingUtil:52 - User: Newjdoe updated successfully
+2022-06-03 13:22:30 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 13:22:30 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 13:22:33 INFO  LoggingUtil:42 - User: jdoe signed in successfully
+2022-06-03 13:22:33 ERROR LoggingUtil:39 - User with username: FakePerson was not found in the database
+2022-06-03 13:23:18 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 13:23:19 INFO  LoggingUtil:32 - User: jdoe registered successfully
+2022-06-03 13:23:21 INFO  LoggingUtil:42 - User: jdoe signed in successfully
+2022-06-03 13:23:21 INFO  LoggingUtil:49 - User: Newjdoe updated successfully
+2022-06-03 13:23:21 ERROR LoggingUtil:39 - User with username: FakePerson was not found in the database
