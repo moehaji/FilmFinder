@@ -122,3 +122,16 @@
 2022-06-02 15:02:06 INFO  LoggingUtil:42 - User: jtsu signed in successfully
 2022-06-02 15:06:25 INFO  LoggingUtil:53 - User: jtsuch updated successfully
 2022-06-02 15:08:16 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-03 07:33:27 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-03 07:33:54 INFO  LoggingUtil:53 - User: jtsuch updated successfully
+2022-06-03 07:34:14 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-03 07:37:28 INFO  LoggingUtil:53 - User: jtsuch updated successfully
+2022-06-03 07:37:35 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-03 07:56:23 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-03 07:56:33 INFO  LoggingUtil:53 - User: jtsuch updated successfully
+2022-06-03 07:56:41 INFO  LoggingUtil:42 - User: jtsuch signed in successfully
+2022-06-03 07:57:36 INFO  LoggingUtil:53 - User: jtsuch updated successfully
+2022-06-03 07:57:39 INFO  LoggingUtil:53 - User: jtsuch updated successfully
+2022-06-03 07:58:23 INFO  LoggingUtil:53 - User: jtsuch updated successfully
+2022-06-03 07:58:49 INFO  LoggingUtil:37 - Comment probably created: Review{reviewId=0, rating=4, content='I think they shoot guns in this movie', reviewer=User{userId=3, firstName='Justin', lastName='Tsuchiyama', username='jtsuch', email='justin235@mail.com', password='password'}, movieRated=Movie{movieId=2, description='Three professional gunslingers the Good, the Bad, and the Ugly must all battle it out to get their hands on $200,000.00 worth of gold.', image='https://imdb-api.com/images/original/MV5BNjJlYmNkZGItM2NhYy00MjlmLTk5NmQtNjg1NmM2ODU4OTMwXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_Ratio0.6751_AL_.jpg', title='The Good, the Bad and the Ugly', year=1966, genre=Genre{genreId=1, genreName='Action'}}}
+2022-06-03 08:03:37 INFO  LoggingUtil:42 - User: jtsuch signed in successfully

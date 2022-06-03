@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { IMovie } from "../Interfaces/IMovie";
 import { IUser } from "../Interfaces/IUser";
 
 interface UserSliceState {
@@ -25,6 +26,15 @@ type Register = {
   password: string,
   email: string
 }
+
+// type Update = {
+//   userId: number,
+//   firstName: string,
+//   lastName: string,
+//   username: string,
+//   password: string,
+//   favorites: IMovie[]
+// }
 
 type Favorites = {
   userId: number,
@@ -73,9 +83,9 @@ export const loginUser = createAsyncThunk(
 
   export const updateUser = createAsyncThunk(
     "user/update", 
-    async (register: Register, thunkAPI) => {
+    async (update: IUser, thunkAPI) => {
     try {
-      const res = await axios.put(`http://localhost:8000/user/update`, register);
+      const res = await axios.put(`http://localhost:8000/user/update`, update);
       console.log("User: " + res.data);
       return {
             userId: res.data.userId,

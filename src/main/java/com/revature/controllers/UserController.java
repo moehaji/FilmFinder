@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import com.revature.exceptions.InvalidCredentialsException;
+import com.revature.models.Movie;
 import com.revature.models.Review;
 import com.revature.utils.MailingUtil;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.mail.MessagingException;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -65,16 +67,18 @@ public class UserController {
     }
 
     @PutMapping("/user/update")
-    public ResponseEntity<Object> handleUpdateUser(@RequestBody LinkedHashMap<String, String> body) {
+    public ResponseEntity<Object> handleUpdateUser(@RequestBody User u) {
 
-        String userId = body.get("userId");
-        String firstName = body.get("firstName");
-        String lastName = body.get("lastName");
-        String username = body.get("username");
-        String password = body.get("password");
-        String email = body.get("email");
+//        String userId = body.get("userId");
+//        String firstName = body.get("firstName");
+//        String lastName = body.get("lastName");
+//        String username = body.get("username");
+//        String password = body.get("password");
+//        Set<Movie> favorites = body.get("favorites");
+        //u.getUserId(), u.getFirstName(), u.getLastName(), u.getUsername(), u.getPassword(), u.getEmail()
+
         try{
-            return new ResponseEntity<>(uServ.updateUser(Integer.parseInt(userId), firstName, lastName, username, password, email), HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(uServ.updateUser(u), HttpStatus.ACCEPTED);
         } catch(InvalidCredentialsException e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
         }

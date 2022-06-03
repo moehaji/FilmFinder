@@ -44,14 +44,14 @@ public class UserService {
         }
     }
 
-    public User updateUser(int id, String firstName, String lastName, String username, String password, String email) {
-        User updatedUser = new User(id, firstName, lastName, username, email, password);
-        if (updatedUser == null) {
+    public User updateUser(User u) { //int id, String firstName, String lastName, String username, String password, String email
+        //User updatedUser = new User(id, firstName, lastName, username, email, password);
+        if (u == null) {
             LoggingUtil.logger.error("Cannot update that user");
             throw new InvalidCredentialsException();
         } else {
-            LoggingUtil.logger.info("User: " + updatedUser.getUsername() + " updated successfully");
-            return uRepo.save(updatedUser);
+            LoggingUtil.logger.info("User: " + u.getUsername() + " updated successfully");
+            return uRepo.save(u);
         }
     }
 

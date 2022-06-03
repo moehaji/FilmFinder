@@ -11,6 +11,7 @@ import { MovieCard } from "../../Components/MovieCard/MovieCard";
 import { AppDispatch } from "../../Store";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../Slices/UserSlice";
+import { IUser } from "../../Interfaces/IUser";
 import "../../Assets/menu.png";
 import "../../Assets/setting.png";
 import "../../Assets/profile-pic.png";
@@ -26,7 +27,6 @@ export const ProfilePage: React.FC = () => {
   const [toggleUpdate, setToggleUpdate] = useState(false);
 
   const [username, setUsername] = useState<any>(currUser.user?.username);
-  const [email, setEmail] = useState<any>(currUser.user?.email);
   const [firstName, setFirstName] = useState<any>(currUser.user?.firstName);
   const [lastName, setLastName] = useState<any>(currUser.user?.lastName);
   const [password, setPassword] = useState<any>(currUser.user?.password);
@@ -51,8 +51,6 @@ export const ProfilePage: React.FC = () => {
       setUsername(event.target.value);
     } else if (event.target.name == "password") {
       setPassword(event.target.value);
-    } else if (event.target.name == "email") {
-      setEmail(event.target.value);
     } else if (event.target.name == "firstName") {
       setFirstName(event.target.value);
     } else {
@@ -61,16 +59,19 @@ export const ProfilePage: React.FC = () => {
   };
 
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     if (currUser.user) {
-      let credentials = {
+      let u : IUser = {
         userId: currUser.user.userId,
         username: username,
         password: password,
-        email: email,
+        email: currUser.user.email,
         firstName: firstName,
         lastName: lastName,
+        favorites: currUser.user.favorites
       };
-      dispatch(updateUser(credentials));
+      dispatch(updateUser(u));
+      setToggleUpdate(false);
     }
   };
 
@@ -99,16 +100,6 @@ export const ProfilePage: React.FC = () => {
                 name="password"
                 autoComplete="off"
                 value={password}
-                onChange={handleChange}
-                required
-              ></input>
-              <label className="label">Email: </label>
-              <input
-                type="email"
-                className="email"
-                name="email"
-                autoComplete="off"
-                value={email}
                 onChange={handleChange}
                 required
               ></input>
