@@ -5,7 +5,7 @@ import { RootState } from "../../Store";
 import { NavbarLoggedIn } from "../../Components/Navbar/NavbarLoggedIn";
 import { Footer } from "../../Components/Footer/Footer";
 import { userInfo } from "os";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IMovie } from "../../Interfaces/IMovie";
 import { MovieCard } from "../../Components/MovieCard/MovieCard";
 import { AppDispatch } from "../../Store";
@@ -78,57 +78,125 @@ export const ProfilePage: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="test">
       <NavbarLoggedIn />
       <div className="profile-content">
         <div className="profile-box">
           {toggleUpdate ? (
-            <form className="update-form">
-              <h3>Update</h3>
-              <label className="label">Username: </label>
-              <input
-                type="text"
-                className="username"
-                name="username"
-                autoComplete="off"
-                value={username}
-                onChange={handleChange}
-                required
-              ></input>
-              <label className="label">Password: </label>
-              <input
-                type="password"
-                className="password"
-                name="password"
-                autoComplete="off"
-                value={password}
-                onChange={handleChange}
-                required
-              ></input>
-              <label className="label">First Name: </label>
-              <input
-                type="text"
-                className="firstName"
-                name="firstName"
-                autoComplete="off"
-                value={firstName}
-                onChange={handleChange}
-                required
-              ></input>
-              <label className="label">Last Name: </label>
-              <input
-                type="text"
-                className="lastName"
-                name="lastName"
-                autoComplete="off"
-                value={lastName}
-                onChange={handleChange}
-                required
-              ></input>
-              <button className="update-profile-btn" onClick={handleSubmit}>
-                Submit
-              </button>
-            </form>
+            // <form className="update-form">
+            //   <h3>Update</h3>
+
+            //   <label className="label">Username: </label>
+            //   <input
+            //     type="text"
+            //     className="username"
+            //     name="username"
+            //     autoComplete="off"
+            //     value={username}
+            //     onChange={handleChange}
+            //     required
+            //   ></input>
+
+            //   <label className="label">Password: </label>
+            //   <input
+            //     type="password"
+            //     className="password"
+            //     name="password"
+            //     autoComplete="off"
+            //     value={password}
+            //     onChange={handleChange}
+            //     required
+            //   ></input>
+
+            //   <label className="label">First Name: </label>
+            //   <input
+            //     type="text"
+            //     className="firstName"
+            //     name="firstName"
+            //     autoComplete="off"
+            //     value={firstName}
+            //     onChange={handleChange}
+            //     required
+            //   ></input>
+
+            //   <label className="label">Last Name: </label>
+            //   <input
+            //     type="text"
+            //     className="lastName"
+            //     name="lastName"
+            //     autoComplete="off"
+            //     value={lastName}
+            //     onChange={handleChange}
+            //     required
+            //   ></input>
+
+            //   <button className="update-profile-btn" onClick={handleSubmit}>
+            //     Submit
+            //   </button>
+            // </form>
+
+            <div className="form-center">
+              <h1>Update</h1>
+              <form action="">
+                <div className="txt_field">
+                  <input
+                    type="text"
+                    name="firstName"
+                    autoComplete="off"
+                    onChange={handleChange}
+                    required
+                  />
+                  <label>New First Name</label>
+                </div>
+
+                <div className="txt_field">
+                  <input
+                    type="text"
+                    name="lastName"
+                    autoComplete="off"
+                    onChange={handleChange}
+                    required
+                  />
+                  <label>New Last Name</label>
+                </div>
+
+                <div className="txt_field">
+                  <input
+                    type="text"
+                    name="username"
+                    autoComplete="off"
+                    onChange={handleChange}
+                    required
+                  />
+                  <label>New Username</label>
+                </div>
+
+                <div className="txt_field">
+                  <input
+                    type="password"
+                    name="password"
+                    onChange={handleChange}
+                    required
+                  />
+                  <label>New Password</label>
+                </div>
+
+                {/* <div className="txt_field">
+                  <input
+                    type="text"
+                    name="email"
+                    autoComplete="off"
+                    onChange={handleChange}
+                    required
+                  />
+                  <label>New Email</label>
+                </div> */}
+
+                <button className="register-btn" onClick={handleSubmit}>
+                  Update
+                </button>
+              </form>
+            </div>
           ) : (
             <div>
               <div className="container-box">
@@ -177,6 +245,6 @@ export const ProfilePage: React.FC = () => {
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 };

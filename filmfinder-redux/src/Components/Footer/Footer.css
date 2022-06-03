@@ -1,9 +1,24 @@
 .footer-body {
     display:flex; 
-    flex-direction:column;
-    /* height:100vh;  */
-    margin:0;
+    flex-direction: column;
+    margin: 0;
+    bottom: 0;
 }
+
+/* .footer {
+    margin: 0;
+    background-color: var(--dark);
+    padding: 40px 0;
+    margin-top:auto;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+} */
+
+/* min-height:100%; */
+    /* bottom: 0; */
 
 .footer {
     min-height:100%;
@@ -11,8 +26,6 @@
     bottom: 0;
     padding: 40px 0;
     background-color: var(--dark);
-    /* position: absolute; */
-    flex: 1 0 auto;
 }
 
 .footer .social .link {
